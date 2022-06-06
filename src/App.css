@@ -3,14 +3,17 @@
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  animation: App-logo-spin infinite 20s linear;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.SMS-Text-field fieldset {
+  border-radius: 100px;
+  text-align: center;
+}
+
+.Name-Text-field fieldset {
+  border-radius: 100px;
+  text-align: left;
 }
 
 .App-header {
