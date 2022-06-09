@@ -10,6 +10,8 @@ import CardHeader from "./components/CardHeader";
 import SmsCard from "./components/cards/SmsCard";
 import NameCard from "./components/cards/NameCard";
 import CloudPaymentsCard from "./components/cards/CloudPaymentsCard";
+import SuccessCard from "./components/cards/SuccessCard";
+import TelephoneCard from "./components/cards/TelephoneCard";
 
 
 function App() {
@@ -19,15 +21,11 @@ function App() {
                 <CssBaseline enableColorScheme/>
                 <Stack alignItems="stretch">
                     <Header color="primary"/>
-                    <Stack alignItems="center">
-                        <StepCard>
-                            <Stack direction="row"
-                                   padding="26px 26px 0 26px"
-                                   justifyContent="flex-start"
-                            >
-                                <BackButton onClick={() => console.log("clicked")}/>
-                            </Stack>
-                        </StepCard>
+                    <Stack marginBottom="20px" alignItems="center">
+                        <TelephoneCard/>
+                    </Stack>
+                    <Stack marginBottom="20px" alignItems="center">
+                        <SuccessCard/>
                     </Stack>
                     <Stack marginTop="20px" alignItems="center">
                         <SmsCard/>

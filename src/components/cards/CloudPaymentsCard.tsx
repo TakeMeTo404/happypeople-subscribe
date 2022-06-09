@@ -1,5 +1,5 @@
 import React, {memo} from "react";
-import {Box, Container, Stack, TextField, Typography} from "@mui/material";
+import {Grid, Stack, Typography} from "@mui/material";
 import StepCard from "../StepCard";
 import CloudPaymentsForm from "../CloudPaymentsForm";
 import NextButton from "../buttons/NextButton";
@@ -20,19 +20,25 @@ const CloudPaymentsCard = () => {
             <Stack sx={{mt: "7%"}}>
                 <CloudPaymentsForm/>
             </Stack>
-            <Stack direction="row" spacing={1} alignItems="center" sx={{mt: "5%"}}>
-                <Typography variant={isMobile ? "h2" : "h1"}>199</Typography>
-                <Stack direction="row" flexGrow="1">
-                    <Stack direction="column" spacing={1} justifyContent="flex-start" flexShrink="0">
-                        <Typography variant={isMobile ? "subtitle1" : "h5"} lineHeight="70%" align="left">₽</Typography>
-                        <Typography variant={isMobile ? "subtitle1" : "h5"} lineHeight="70%" align="left">в месяц</Typography>
+            <Grid container rowSpacing={1} sx={{mt: "7%"}}>
+                <Grid item xs>
+                    <Stack direction="row" spacing={1} justifyContent="flex-start" alignSelf="flex-start">
+                        <Typography variant="h2" align="left" lineHeight="70%">199</Typography>
+                        <Stack direction="column" spacing={1} alignItems="flex-start" justifyContent="flex-start" sx={{pt: "2%"}}>
+                            <Typography variant={isMobile ? "subtitle1" : "h5"} lineHeight="70%" align="left">₽</Typography>
+                            <Typography variant={isMobile ? "subtitle1" : "h5"} lineHeight="70%" align="left">в месяц</Typography>
+                        </Stack>
                     </Stack>
-                    <Stack flexGrow="1"/>
-                    <NextButton handleClick={() => console.log("оформить")}>
-                        <Typography variant="h6" sx={{textTransform: "none", ml: 1, mr: 1}}>Оформить</Typography>
-                    </NextButton>
-                </Stack>
-            </Stack>
+                </Grid>
+                <Grid item xs="auto"/>
+                <Grid item xs alignSelf="flex-end">
+                    <Stack direction="row" justifyContent="flex-end">
+                        <NextButton handleClick={() => console.log("оформить")}>
+                            <Typography variant="h6" sx={{textTransform: "none", ml: 1, mr: 1}}>Оформить</Typography>
+                        </NextButton>
+                    </Stack>
+                </Grid>
+            </Grid>
         </Stack>
     </StepCard>;
 };

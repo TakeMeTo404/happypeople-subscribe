@@ -8,7 +8,7 @@ type StepCardProps = {
 }
 
 const StepCard: FC<StepCardProps> = ({goBack, children}) => {
-    return <Stack alignItems="stretch" sx={{
+    return <Stack alignItems="center" sx={{
         width: 'min(100%, 619px)',
         minHeight: '821px',
         background: "white",
@@ -17,11 +17,11 @@ const StepCard: FC<StepCardProps> = ({goBack, children}) => {
         padding: '26px'
     }}
     >
-        {goBack && <Stack justifyContent="flex-start">
-            <IconButton sx={{mr: 'auto'}}>
+        {goBack &&
+            <IconButton sx={{alignSelf: "flex-start"}}>
                 <img src={back} height={64} width={64}/>
             </IconButton>
-        </Stack>}
+        }
         {children}
     </Stack>
 }

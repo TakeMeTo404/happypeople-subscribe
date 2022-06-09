@@ -51,7 +51,7 @@ const SmsCard = () => {
             <Container>
                 <CardHeader title="Код из СМС"/>
             </Container>
-            <Stack direction="row" spacing={1.5} marginTop="44px" className="SMS-Text-field" justifyContent="stretch">
+            <Stack direction="row" spacing={1} marginTop="44px" className="SMS-Text-field" justifyContent="stretch">
                 <TextField size="small" variant="outlined" placeholder="0000"
                            inputProps={{style: { textAlign: "center", fontSize: "21px", letterSpacing: "0.12em" }}}
                            InputLabelProps={{style: {fontSize: "21px"}}}
