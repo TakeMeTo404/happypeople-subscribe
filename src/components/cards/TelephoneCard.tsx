@@ -1,5 +1,5 @@
 import React, {memo} from "react";
-import {Avatar, Button, Divider, Grid, Stack, TextField, Typography} from "@mui/material";
+import {Avatar, Button, Divider, Grid, Link, Stack, TextField, Typography} from "@mui/material";
 import StepCard from "../StepCard";
 import CardBottomButton from "../buttons/CardBottomButton";
 import DownLoadButton from "../buttons/DownLoadButton";
@@ -9,6 +9,7 @@ import photo2 from '../../assets/img/photo-2.png';
 import photo3 from '../../assets/img/photo-3.png';
 import photo4 from '../../assets/img/photo-4.png';
 import photo5 from '../../assets/img/photo-5.png';
+import checked from '../../assets/img/checked.svg';
 import NextButton from "../buttons/NextButton";
 
 
@@ -60,7 +61,7 @@ const TelephoneCard = ({}: TelephoneCardProps) => {
                }}
         >
             <FivePhotos/>
-            <Stack spacing={4} sx={{mt: "25%"}}>
+            <Stack spacing={6} sx={{mt: "25%"}}>
                 <Stack spacing={3}>
                     <Typography variant="h4" lineHeight="70%" sx={{color: 'text.primary'}}>
                         Присоединяйтесь,
@@ -70,18 +71,43 @@ const TelephoneCard = ({}: TelephoneCardProps) => {
                     </Typography>
                 </Stack>
                 <Stack direction="row" spacing={1} justifyContent="center">
-                    <Stack direction="row" spacing={1} border={1}>
-                        <Typography variant="h6">+7</Typography>
-                        <Divider orientation="vertical"/>
-                        <Typography variant="h6">906 637 88 82</Typography>
-
-                        {/*<TextField placeholder="телефон"/>*/}
+                    <Stack direction="row"
+                           spacing={1}
+                           alignItems="baseline"
+                           justifyContent="stretch"
+                           sx={{
+                               borderRadius: "100px",
+                               border: "1px solid #979797"
+                           }}
+                    >
+                        <Typography variant="h6" fontSize="21px" sx={{pl: 2, pr: 2, pt: 1, pb: 1, borderRight: "1px solid #979797"}}>+7</Typography>
+                        <TextField variant="standard" size="small" placeholder="999 999 99 99"
+                                   sx={{
+                                       borderColor: "transparent",
+                                       pl: 1,
+                                       pr: 1,
+                                       maxWidth: "10em"
+                                   }}
+                                   InputLabelProps={{
+                                       style: {fontSize: "21px"}
+                                   }}
+                                   InputProps={{
+                                       disableUnderline: true,
+                                       style: {fontSize: "21px"}
+                                   }}
+                        />
                     </Stack>
                     <NextButton handleClick={() => console.log("телефон введен")}/>
                 </Stack>
             </Stack>
             <Stack flexGrow={1}/>
-            <Button>press me</Button>
+            <Stack direction="row" alignItems="center" spacing={2}>
+                <img src={checked} height="60%"/>
+                <Stack spacing={0}>
+                    <Typography variant="subtitle1" align="left" lineHeight="100%" letterSpacing="0.02em" fontWeight={400}>Регистрируясь, вы соглашаетесь</Typography>
+                    <Link href="#" variant="subtitle1" align="left" lineHeight="100%" letterSpacing="0.02em" sx={{":hover": {cursor: "pointer"}}} color="inherit">с правилами использования приложения</Link>
+                </Stack>
+            </Stack>
         </Stack>
     </StepCard>;
 }
