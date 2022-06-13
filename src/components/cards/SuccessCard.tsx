@@ -1,15 +1,15 @@
 import React, {memo} from "react";
-import {Avatar, Grid, Stack, Typography} from "@mui/material";
+import {Avatar, Grid, Stack, Typography, useMediaQuery, useTheme} from "@mui/material";
 import StepCard from "../StepCard";
 import CardBottomButton from "../buttons/CardBottomButton";
 import DownLoadButton from "../buttons/DownLoadButton";
-import {useIsMobile} from "../../hooks/useIsMobile";
 import boris from '../../assets/img/boris.png';
 
 type SuccessCardProps = {}
 
 const SuccessCard = ({}: SuccessCardProps) => {
-    const isMobile = useIsMobile();
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('tablet'));
 
     return <StepCard goBack={() => console.log('back')}>
         <Stack spacing={6} alignItems="center"

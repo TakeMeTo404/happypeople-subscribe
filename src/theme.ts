@@ -1,6 +1,6 @@
 import {createTheme} from "@mui/material/styles";
 
-export const theme = createTheme({
+const theme = createTheme({
     typography: {
         fontFamily: [
             'Mabry Pro',
@@ -17,5 +17,31 @@ export const theme = createTheme({
         background: {
             default: "#E5E5E5"
         }
+    },
+    breakpoints: {
+        values: {
+            mobile: 0,
+            tablet: 640,
+            laptop: 1250,
+            desktop: 1700,
+        }
     }
 });
+
+declare module '@mui/material/styles' {
+    interface BreakpointOverrides {
+        xs: false; // removes the `xs` breakpoint
+        sm: false;
+        md: false;
+        lg: false;
+        xl: false;
+        mobile: true; // adds the `mobile` breakpoint
+        tablet: true;
+        laptop: true;
+        desktop: true;
+    }
+}
+
+theme.typography.h1.fontSize = "48px"
+
+export { theme };

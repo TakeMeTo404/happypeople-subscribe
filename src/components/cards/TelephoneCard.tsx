@@ -1,9 +1,6 @@
 import React, {memo} from "react";
-import {Avatar, Button, Divider, Grid, Link, Stack, TextField, Typography} from "@mui/material";
+import {Link, Stack, TextField, Typography, useMediaQuery, useTheme} from "@mui/material";
 import StepCard from "../StepCard";
-import CardBottomButton from "../buttons/CardBottomButton";
-import DownLoadButton from "../buttons/DownLoadButton";
-import {useIsMobile} from "../../hooks/useIsMobile";
 import photo1 from '../../assets/img/photo-1.png';
 import photo2 from '../../assets/img/photo-2.png';
 import photo3 from '../../assets/img/photo-3.png';
@@ -14,10 +11,6 @@ import NextButton from "../buttons/NextButton";
 
 
 type TelephoneCardProps = {}
-
-const Photo = ({}) => {
-
-}
 
 const FivePhotos = memo(() => {
     return <Stack direction="row"
@@ -48,7 +41,8 @@ const FivePhotos = memo(() => {
 })
 
 const TelephoneCard = ({}: TelephoneCardProps) => {
-    const isMobile = useIsMobile();
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('tablet'));
 
     return <StepCard>
         <Stack alignItems="center"

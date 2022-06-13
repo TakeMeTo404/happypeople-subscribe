@@ -1,12 +1,12 @@
 import React, {memo} from "react";
-import {Grid, Stack, Typography} from "@mui/material";
+import {Grid, Stack, Typography, useMediaQuery, useTheme} from "@mui/material";
 import StepCard from "../StepCard";
 import CloudPaymentsForm from "../CloudPaymentsForm";
 import NextButton from "../buttons/NextButton";
-import {useIsMobile} from "../../hooks/useIsMobile";
 
 const CloudPaymentsCard = () => {
-    const isMobile = useIsMobile();
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('tablet'));
 
     return <StepCard goBack={() => console.log('back')}>
         <Stack alignSelf="center"

@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  margin: 0 auto;
+  width: min(100%, 1462px);
 }
 
 .App-logo {
@@ -29,6 +31,78 @@
 
 .App-link {
   color: #61dafb;
+}
+
+@media screen and (min-width: 1700px){
+  .card-holder {
+    top: 150px;
+  }
+}
+
+@media screen and (min-width: 1250px) and (max-width: 1700px) {
+  .card-holder {
+    bottom: 0;
+  }
+}
+
+.card-holder {
+  position: fixed;
+  right: max(100px, calc(50% - 670px));
+  overflow: auto;
+  overflow-y: scroll;
+  width: fit-content;
+}
+
+.cardContent-entering-right {
+  animation: fade-in-from-right .5s;
+}
+
+.cardContent-entering-left {
+  animation: fade-in-from-left .5s;
+}
+
+.cardContent-exiting-right {
+  animation: fade-in-from-right .5s reverse;
+}
+
+.cardContent-exiting-left {
+  animation: fade-in-from-left .5s reverse;
+}
+
+
+.content-entering {
+  animation: fade-in-from-left .5s;
+}
+
+.content-exiting {
+  animation: fade-in-from-left .5s reverse;
+}
+
+.content-hidden {
+  opacity: 0;
+}
+
+
+@keyframes fade-in-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes App-logo-spin {

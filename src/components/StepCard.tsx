@@ -9,8 +9,8 @@ type StepCardProps = {
 
 const StepCard: FC<StepCardProps> = ({goBack, children}) => {
     return <Stack alignItems="center" sx={{
-        width: 'min(100%, 619px)',
-        minHeight: '821px',
+        width: 'min(100vw, 619px)',
+        height: 'min(100vh, 829px)',
         background: "white",
         boxShadow: "0 0 34px rgba(0, 0, 0, 0.08)",
         borderRadius: "20px",
