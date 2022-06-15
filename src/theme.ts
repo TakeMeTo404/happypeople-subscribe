@@ -44,4 +44,4 @@ declare module '@mui/material/styles' {
 
 theme.typography.h1.fontSize = "48px"
 
-export { theme };
+export default theme;

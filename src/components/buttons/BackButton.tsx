@@ -1,14 +1,14 @@
 import {memo} from "react";
+import {IconButton} from "@mui/material";
+import {ReactComponent as Back} from "../../assets/img/back.svg";
+import useActions from "../../hooks/useActions";
 
-type BackButtonProps = {
-    onClick: () => void;
-}
+const BackButton = () => {
+    const {goBack} = useActions();
 
-const BackButton = ({onClick}: BackButtonProps) => {
-    return <svg onClick={onClick} width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="32" cy="32" r="31.5" stroke="#EAEAEA"/>
-        <path d="M32.5 21L27 31.5L32.5 42" stroke="#000347"/>
-    </svg>
+    return <IconButton onClick={goBack} sx={{alignSelf: "flex-start", mt: 3, ml: 3}}>
+        <Back height={64} width={64}/>
+    </IconButton>
 }
 
 export default memo(BackButton);

@@ -1,4 +1,27 @@
+@media screen and (min-width: 1700px){
+  .App {
+    --card-holder-top: 150px;
+  }
+
+  /*.card-holder {*/
+  /*  top: 150px;*/
+  /*}*/
+}
+
+@media screen and (min-width: 1250px) and (max-width: 1700px) {
+  .App {
+    --card-holder-bottom: 0;
+
+  }
+
+  /*.card-holder {*/
+  /*  bottom: 0;*/
+  /*}*/
+}
+
 .App {
+  --card-holder-right: 1px;
+
   text-align: center;
   margin: 0 auto;
   width: min(100%, 1462px);
@@ -33,60 +56,110 @@
   color: #61dafb;
 }
 
-@media screen and (min-width: 1700px){
-  .card-holder {
-    top: 150px;
-  }
-}
-
-@media screen and (min-width: 1250px) and (max-width: 1700px) {
-  .card-holder {
-    bottom: 0;
-  }
-}
-
 .card-holder {
   position: fixed;
-  right: max(100px, calc(50% - 670px));
   overflow: auto;
   overflow-y: scroll;
   width: fit-content;
+  top: var(--card-holder-top);
+  bottom: var(--card-holder-bottom);
 }
 
-.cardContent-entering-right {
-  animation: fade-in-from-right .5s;
+.card-holder-right {
+  /*margin-right: max(100px, calc(50% - 670px));*/
+  /*right: max(100px, calc(50% - 670px));*/
+  /*right: auto;*/
+  /*transform: translateX(-50%);*/
+  /*right: 50%;*/
+  /*left: 50%;*/
+  left: 50%;
+  margin: 0 auto;
 }
 
-.cardContent-entering-left {
-  animation: fade-in-from-left .5s;
+.card-holder-center {
+  transform: translateX(-50%);
+  left: 50%;
+  margin: 0 auto;
 }
 
-.cardContent-exiting-right {
-  animation: fade-in-from-right .5s reverse;
+.card-holder-moving-right {
+  animation: card-move reverse .5s;
 }
 
-.cardContent-exiting-left {
-  animation: fade-in-from-left .5s reverse;
+.card-holder-moving-center {
+  animation: card-move .5s;
 }
 
+@keyframes card-move {
+  from {
+    left: 50%;
+    margin: 0 auto;
+  }
 
-.content-entering {
-  animation: fade-in-from-left .5s;
+  to {
+    transform: translateX(-50%);
+    left: 50%;
+    margin: 0 auto;
+  }
 }
 
-.content-exiting {
-  animation: fade-in-from-left .5s reverse;
+.card {
+  width: min(100vw, 619px);
+  height: min(100vh, 829px);
+  background: white;
+  box-shadow: 0 0 34px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  position: relative;
 }
 
-.content-hidden {
-  opacity: 0;
+.card-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
+.fade-in {
+  animation: fade .5s;
+}
 
-@keyframes fade-in-from-left {
+.fade-out {
+  animation: fade .5s reverse;
+}
+
+.fade-in-left {
+  animation: fade-left .5s;
+}
+
+.fade-out-left {
+  animation: fade-left .5s reverse;
+}
+
+.fade-in-right {
+  animation: fade-right .5s;
+}
+
+.fade-out-right {
+  animation: fade-right .5s reverse;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@keyframes fade {
   from {
     opacity: 0;
-    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+@keyframes fade-left {
+  from {
+    opacity: 0;
+    transform: translateX(-200%);
   }
   to {
     opacity: 1;
@@ -94,22 +167,13 @@
   }
 }
 
-@keyframes fade-in-from-right {
+@keyframes fade-right {
   from {
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateX(200%);
   }
   to {
     opacity: 1;
     transform: translateX(0);
-  }
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
   }
 }
