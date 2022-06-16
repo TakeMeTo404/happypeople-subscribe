@@ -2,33 +2,85 @@
   .App {
     --card-holder-top: 150px;
   }
-
-  /*.card-holder {*/
-  /*  top: 150px;*/
-  /*}*/
 }
 
 @media screen and (min-width: 1250px) and (max-width: 1700px) {
   .App {
     --card-holder-bottom: 0;
-
   }
+}
 
-  /*.card-holder {*/
-  /*  bottom: 0;*/
-  /*}*/
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 40px;
+  padding-left: min(2em, 10vw);
+  padding-top: min(1em, 2vh);
+  gap: .2em;
 }
 
 .App {
-  --card-holder-right: 1px;
+  --text-primary: #000347;
+  --text-secondary: #E5FFD5;
 
-  text-align: center;
   margin: 0 auto;
   width: min(100%, 1462px);
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
+.content-wrapper {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+}
+
+.circles-wrapper {
+  position: absolute;
+  z-index: -1;
+  top: -31%;
+  left: -38%;
+  width: 125%;
+  height: 133%;
+}
+
+.circle {
+  position: absolute;
+  width: 88%;
+  aspect-ratio: 1;
+}
+
+.primary {
+  color: var(--text-primary);
+  stroke: var(--text-primary);
+  fill: var(--text-primary);
+}
+
+.secondary {
+  color: var(--text-secondary);
+  stroke: var(--text-secondary);
+  fill: var(--text-secondary);
+}
+
+.color-to-primary {
+  animation: color-change .5s reverse;
+}
+
+.color-to-secondary {
+  animation: color-change .5s;
+}
+
+@keyframes color-change {
+  from {
+    color: var(--text-primary);
+    stroke: var(--text-primary);
+    fill: var(--text-primary);
+  }
+  to {
+    color: var(--text-secondary);
+    stroke: var(--text-secondary);
+    fill: var(--text-secondary);
+  }
 }
 
 .SMS-Text-field fieldset {
@@ -41,21 +93,6 @@
   text-align: left;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 .card-holder {
   position: fixed;
   overflow: auto;
@@ -63,23 +100,22 @@
   width: fit-content;
   top: var(--card-holder-top);
   bottom: var(--card-holder-bottom);
+  margin: 0 auto;
+  left: 50%;
 }
 
-.card-holder-right {
-  /*margin-right: max(100px, calc(50% - 670px));*/
-  /*right: max(100px, calc(50% - 670px));*/
-  /*right: auto;*/
-  /*transform: translateX(-50%);*/
-  /*right: 50%;*/
-  /*left: 50%;*/
-  left: 50%;
-  margin: 0 auto;
+.card-mobile-wrapper {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  align-items: flex-start;
+  justify-content: center;
 }
+
+.card-holder-right {}
 
 .card-holder-center {
   transform: translateX(-50%);
-  left: 50%;
-  margin: 0 auto;
 }
 
 .card-holder-moving-right {
@@ -91,16 +127,8 @@
 }
 
 @keyframes card-move {
-  from {
-    left: 50%;
-    margin: 0 auto;
-  }
-
-  to {
-    transform: translateX(-50%);
-    left: 50%;
-    margin: 0 auto;
-  }
+  from {}
+  to { transform: translateX(-50%); }
 }
 
 .card {
@@ -109,6 +137,7 @@
   background: white;
   box-shadow: 0 0 34px rgba(0, 0, 0, 0.08);
   border-radius: 20px;
+  z-index: 2;
   position: relative;
 }
 
@@ -147,14 +176,9 @@
 }
 
 @keyframes fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
-
 
 @keyframes fade-left {
   from {

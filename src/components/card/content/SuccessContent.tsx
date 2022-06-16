@@ -17,6 +17,7 @@ const SuccessContent = ({}: SuccessCardProps) => {
         <Avatar src={boris} alt="avatar" sx={{
             width: isMobile ? "125px" : '125px',
             height: isMobile ? "125px" : '125px',
+            mt: 1,
             transition: "0.3s",
             ":hover": {
                 filter: "brightness(0.5)",
@@ -24,15 +25,15 @@ const SuccessContent = ({}: SuccessCardProps) => {
                 transform: "scale(1.02)"
             }
         }}/>
-        <Stack spacing={3}>
-            <Typography variant="h4" lineHeight="70%" sx={{color: 'text.primary'}}>
+        <Stack spacing={2} sx={{mt: 5}}>
+            <Typography variant="h4" align="center" lineHeight="70%" sx={{color: 'text.primary'}}>
                 Борис,
             </Typography>
-            <Typography variant="h4" lineHeight="70%" sx={{color: 'text.primary'}}>
+            <Typography variant="h4" align="center" lineHeight="70%" sx={{color: 'text.primary'}}>
                 Ваша подписка активна!
             </Typography>
         </Stack>
-        <Stack spacing={2} alignItems="stretch" width="min(100%, 266px)">
+        <Stack spacing={2} alignItems="stretch" width="min(100%, 266px)" sx={{mt: 5}}>
             <DownLoadButton variant="ios"/>
             <DownLoadButton variant="android"/>
         </Stack>

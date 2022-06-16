@@ -1,4 +1,4 @@
-import React, {memo} from "react";
+import React, {memo, useEffect, useRef} from "react";
 import {Link, Stack, TextField, Typography} from "@mui/material";
 import photo1 from '../../../assets/img/photo-1.png';
 import photo2 from '../../../assets/img/photo-2.png';
@@ -42,6 +42,13 @@ const FivePhotos = memo(() => {
 
 const TelephoneContent = () => {
     const {goNext} = useActions();
+    const inputRef = useRef<HTMLInputElement>();
+
+    useEffect(() => {
+        setTimeout(() => {
+            // inputRef.current?.focus();
+        }, 2000)
+    }, [])
 
     return <CardContentWrapper>
         <FivePhotos/>
@@ -66,7 +73,7 @@ const TelephoneContent = () => {
                 >
                     <Typography variant="h6" fontSize="21px"
                                 sx={{pl: 2, pr: 2, pt: 1, pb: 1, borderRight: "1px solid #979797"}}>+7</Typography>
-                    <TextField variant="standard" size="small" placeholder="999 999 99 99"
+                    <TextField inputRef={inputRef} variant="standard" size="small" placeholder="999 999 99 99"
                                sx={{
                                    borderColor: "transparent",
                                    pl: 1,

@@ -10,16 +10,7 @@ import screen3 from '../assets/img/screen3.png';
 const Content = () => {
     const theme = useTheme();
 
-    return <Stack alignItems="flex-start" sx={{pt: 5, pl: 12, pb: 50}}>
-        <Stack direction="row" alignItems="center" fontSize="40px" spacing={1}>
-            <Smile
-                height="1.5rem"
-                width={"1.25rem"}
-                fill={theme.palette.text.secondary}
-                stroke={theme.palette.text.secondary}
-            />
-            <Typography variant="h2" lineHeight="100%" sx={{color: "text.secondary", fontSize: "inherit", pb: "3%"}}>частливые</Typography>
-        </Stack>
+    return <Stack alignItems="flex-start" sx={{pt: 1, pl: "min(2em, 10vw)", pb: 50, fontSize: "40px"}}>
         <Typography variant="h1" align="left" lineHeight="90%" sx={{color: "text.secondary", mt: 7}}>Люди. Сообщества.</Typography>
         <Typography variant="h1" align="left" lineHeight="90%" sx={{color: "text.secondary"}}>Территории</Typography>
         <Typography variant="h6" align="left" lineHeight="115%" width="23.4em" sx={{mt: 5, color: "white"}}>

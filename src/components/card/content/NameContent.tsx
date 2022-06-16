@@ -10,12 +10,13 @@ const NameContent = () => {
 
     return <CardContentWrapper>
         <BackButton/>
-        <Container>
-            <Typography variant="h4" sx={{color: 'text.primary'}}>Как Вас зовут?</Typography>
-            <Typography fontSize="min(13px, 1rem)" lineHeight="min(13px, 1rem)">Чтобы Вы и участники сообщества, могли
+        <Stack width="min(100%, 333px)" sx={{mt: 15}}>
+            <Typography variant="h4" align="center" sx={{color: 'text.primary'}}>Как Вас зовут?</Typography>
+            <Typography fontSize="min(13px, 1rem)" align="center" lineHeight="min(13px, 1rem)">
+                Чтобы Вы и участники сообщества, могли
                 обращаться друг к другу по имени 🙌</Typography>
-        </Container>
-        <Stack direction="row" spacing={1.5} marginTop="40px" className="Name-Text-field" justifyContent="stretch">
+        </Stack>
+        <Stack direction="row" spacing={1.5} sx={{mt: 4}} className="Name-Text-field" justifyContent="stretch">
             <TextField size="small" variant="outlined" placeholder="Борис"
                        inputProps={{style: { fontSize: "21px" }}}
                        InputLabelProps={{style: {fontSize: "21px"}}}

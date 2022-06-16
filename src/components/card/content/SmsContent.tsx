@@ -1,5 +1,5 @@
 import React, {memo} from "react";
-import {Button, Container, Stack, TextField} from "@mui/material";
+import {Button, Container, Stack, TextField, Typography} from "@mui/material";
 import CardHeader from "../../CardHeader";
 import NextButton from "../../buttons/NextButton";
 import BackButton from "../../buttons/BackButton";
@@ -11,13 +11,15 @@ const SmsContent = () => {
 
     return <CardContentWrapper>
         <BackButton/>
-        <Container sx={{mt: "30%"}}>
-            <CardHeader title="Код из СМС"/>
-        </Container>
         <Stack width="min(100%, 333px)"
                sx={{mt: 4}}
         >
-            <Stack direction="row" spacing={1} className="SMS-Text-field" justifyContent="stretch">
+            <Typography fontSize="36px" align="center" fontWeight="400" sx={{
+                color: "text.primary",
+                mt: 13
+            }}
+            >Код из СМС</Typography>
+            <Stack direction="row" spacing={1} className="SMS-Text-field" justifyContent="stretch" sx={{mt: 5}}>
                 <TextField size="small" variant="outlined" placeholder="0000"
                            inputProps={{style: { textAlign: "center", fontSize: "21px", letterSpacing: "0.12em" }}}
                            InputLabelProps={{style: {fontSize: "21px"}}}
