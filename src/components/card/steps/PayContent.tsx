@@ -1,7 +1,7 @@
 import React, {memo} from "react";
 import {Grid, Stack, Typography, useMediaQuery, useTheme} from "@mui/material";
 import CloudPaymentsForm from "../../CloudPaymentsForm";
-import NextButton from "../../buttons/NextButton";
+import NextButton from "../../buttons/NextButton/NextButton";
 import CardContentWrapper from "../CardContentWrapper";
 import useActions from "../../../hooks/useActions";
 import BackButton from "../../buttons/BackButton";

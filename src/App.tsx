@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
-import './App.css';
-import {Typography, useMediaQuery, useTheme} from "@mui/material";
-import Content from "./components/Content";
+import React, {useEffect, useState} from 'react';
+import {useMediaQuery} from 'react-responsive'
+import Content from "./components/content/Content";
 import circleUp from "./assets/img/circleUp.png";
 import circleBottom from "./assets/img/circleBottom.png";
 import {CSSTransition} from "react-transition-group";
@@ -9,25 +8,76 @@ import Card from "./components/card/Card";
 import useTypedSelector from "./hooks/useTypedSelector";
 import {Step} from "./store/reducers/stepReducer";
 import useActions from "./hooks/useActions";
-import {ReactComponent as Smile} from "./assets/img/smile.svg";
+import Header from "./components/Header/Header";
+import './App.css';
 
 function App() {
-    const theme = useTheme();
-    const [state, setState] = useState<0 | 1>(0);
-    const isLarge = useMediaQuery(theme.breakpoints.up('laptop')) && false;
-    const isMobile = useMediaQuery(theme.breakpoints.down('laptop'));
+    const isTabletOrMobile = useMediaQuery({query: '(max-width: 1224px)'})
     const step = useTypedSelector(state => state.step.current);
     const {goNext, goBack} = useActions();
+
+    useEffect(() => {
+        // setTimeout(goNext, 3000)
+        // setTimeout(goBack, 6000)
+    }, [])
 
     return (
         <div className="App">
             {
-                isMobile && <div className="card-mobile-wrapper">
-                    <Card/>
-                </div>
+                isTabletOrMobile &&
+                    <div className="App__card-holder_mobile">
+                        <Card/>
+                    </div>
             }
 
-            <CSSTransition timeout={500} in={step === Step.PHONE} appear classNames={{
+            <div className="App__content">
+                <div className="App__header">
+                    <Header/>
+                </div>
+                <CSSTransition mountOnEnter in={step === Step.PHONE} timeout={500}
+                               classNames={{
+                                   enterActive: 'fade-in',
+                                   exitActive: 'fade-out',
+                                   exitDone: 'hidden'
+                               }}
+                >
+                    <Content/>
+                </CSSTransition>
+                <CSSTransition mountOnEnter in={step === Step.PHONE} timeout={500}
+                               classNames={{
+                                   enterActive: 'fade-in',
+                                   exitActive: 'fade-out',
+                                   exitDone: 'hidden'
+                               }}
+                >
+                    <div className="App__circles">
+                        <img src={circleUp} className="circle" style={{right: 0, top: 0}}/>
+                        <img src={circleBottom} className="circle" style={{left: 0, bottom: 0}}/>
+                    </div>
+                </CSSTransition>
+            </div>
+
+            {!isTabletOrMobile && <CSSTransition in={step === Step.PHONE} appear timeout={500}
+                                                          classNames={{
+                                                              appearDone: 'card-holder-right',
+                                                              enterActive: 'card-holder-moving-right',
+                                                              enterDone: 'card-holder-right',
+                                                              exitActive: 'card-holder-moving-center',
+                                                              exitDone: 'card-holder-center'
+                                                          }}>
+                <div className="App__card-holder_desktop">
+                    <Card/>
+                </div>
+            </CSSTransition>}
+
+            {/*{*/}
+            {/*    isMobile && <div className="card-mobile-wrapper">*/}
+            {/*        <Card/>*/}
+            {/*    </div>*/}
+            {/*}*/}
+
+
+            {/*            <CSSTransition timeout={500} in={step === Step.PHONE} appear classNames={{
                 appearDone: "secondary",
                 enterActive: "color-to-secondary",
                 enterDone: "secondary",
@@ -43,76 +93,39 @@ function App() {
                     />
                     <Typography variant="h2" lineHeight="100%" sx={{color: "inherit", fontSize: "inherit", pb: ".5%"}}>частливые</Typography>
                 </div>
-            </CSSTransition>
+            </CSSTransition>*/}
+            {/*<Header/>*/}
 
-            <CSSTransition mountOnEnter in={step === Step.PHONE} timeout={500}
-                           classNames={{
-                               enterActive: 'fade-in',
-                               exitActive: 'fade-out',
-                               exitDone: 'hidden'
-                           }}
-            >
-                <div className="content-wrapper">
-                    <Content/>
-                    <div className="circles-wrapper">
-                        <img src={circleUp} className="circle" style={{right: 0, top: 0}}/>
-                        <img src={circleBottom} className="circle" style={{left: 0, bottom: 0}}/>
-                    </div>
-                </div>
-            </CSSTransition>
+            {/*<CSSTransition mountOnEnter in={step === Step.PHONE} timeout={500}*/}
+            {/*               classNames={{*/}
+            {/*                   enterActive: 'fade-in',*/}
+            {/*                   exitActive: 'fade-out',*/}
+            {/*                   exitDone: 'hidden'*/}
+            {/*               }}*/}
+            {/*>*/}
+            {/*    <div className="content-wrapper">*/}
+            {/*        <Content/>*/}
+            {/*        <div className="circles-wrapper">*/}
+            {/*            /!*<img src={circleUp} className="circle" style={{right: 0, top: 0}}/>*!/*/}
+            {/*            /!*<img src={circleBottom} className="circle" style={{left: 0, bottom: 0}}/>*!/*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</CSSTransition>*/}
 
-            {
-                !isMobile && <CSSTransition in={step === Step.PHONE} appear timeout={500}
-                                            classNames={{
-                                                appearDone: 'card-holder-right',
-                                                enterActive: 'card-holder-moving-right',
-                                                enterDone: 'card-holder-right',
-                                                exitActive: 'card-holder-moving-center',
-                                                exitDone: 'card-holder-center'
-                                            }}>
-                    <div className="card-holder">
-                        <Card/>
-                    </div>
-                </CSSTransition>
-            }
-
-            {isLarge &&
-                <div style={{position: "relative", height: "3197px"}}>
-                    <CSSTransition mountOnEnter in={step === Step.PHONE} timeout={500}
-                                   classNames={{
-                                       enterActive: 'fade-in',
-                                       exitActive: 'fade-out',
-                                       exitDone: 'hidden'
-                                   }}
-                    >
-                        <div>
-                            <Content/>
-                            {/*<div style={{position: "absolute", zIndex: -1, top: -1000, left: -564, width: "1834px", height: "4267px"}}>*/}
-                            {/*    <img src={circleUp} width={1614} height={1614} style={{position: "absolute", right: 0, top: 0}}/>*/}
-                            {/*    <img src={circleBottom} width={1614} height={1614} style={{position: "absolute", left: 0, bottom: 0}}/>*/}
-                            {/*</div>*/}
-                            <div className="circles-wrapper">
-                                <img src={circleUp} className="circle" style={{right: 0, top: 0}}/>
-                                <img src={circleBottom} className="circle" style={{left: 0, bottom: 0}}/>
-                            </div>
-                        </div>
-                    </CSSTransition>
-                    <CSSTransition in={step === Step.PHONE}
-                                   appear
-                                   timeout={500}
-                                   classNames={{
-                        appearDone: 'card-holder-right',
-                        enterActive: 'card-holder-moving-right',
-                        enterDone: 'card-holder-right',
-                        exitActive: 'card-holder-moving-center',
-                        exitDone: 'card-holder-center'
-                    }}>
-                        <div className="card-holder">
-                            <Card/>
-                        </div>
-                    </CSSTransition>
-                </div>
-            }
+            {/*{*/}
+            {/*    !isMobile && <CSSTransition in={step === Step.PHONE} appear timeout={500}*/}
+            {/*                                classNames={{*/}
+            {/*                                    appearDone: 'card-holder-right',*/}
+            {/*                                    enterActive: 'card-holder-moving-right',*/}
+            {/*                                    enterDone: 'card-holder-right',*/}
+            {/*                                    exitActive: 'card-holder-moving-center',*/}
+            {/*                                    exitDone: 'card-holder-center'*/}
+            {/*                                }}>*/}
+            {/*        <div className="card-holder">*/}
+            {/*            <Card/>*/}
+            {/*        </div>*/}
+            {/*    </CSSTransition>*/}
+            {/*}*/}
         </div>
     );
 }

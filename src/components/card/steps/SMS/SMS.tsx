@@ -1,16 +1,16 @@
 import React, {memo} from "react";
 import {Button, Container, Stack, TextField, Typography} from "@mui/material";
-import CardHeader from "../../CardHeader";
-import NextButton from "../../buttons/NextButton";
-import BackButton from "../../buttons/BackButton";
-import CardContentWrapper from "../CardContentWrapper";
-import useActions from "../../../hooks/useActions";
+import NextButton from "../../../buttons/NextButton/NextButton";
+import BackButton from "../../../buttons/BackButton";
+import useActions from "../../../../hooks/useActions";
 
-const SmsContent = () => {
-    const {goNext} = useActions();
+const SMS = () => {
+    const {goNext, goBack} = useActions();
 
-    return <CardContentWrapper>
-        <BackButton/>
+    return <div className="card__content sms">
+        <div className="content__back-button-wrapper">
+            <BackButton handleClick={goBack}/>
+        </div>
         <Stack width="min(100%, 333px)"
                sx={{mt: 4}}
         >
@@ -28,7 +28,7 @@ const SmsContent = () => {
             </Stack>
             <Button sx={{alignSelf: "flex-start", color: "text.primary", textTransform: "none", mt: 2}}>Не пришел?</Button>
         </Stack>
-    </CardContentWrapper>;
+    </div>;
 };
 
-export default memo(SmsContent);
+export default memo(SMS);

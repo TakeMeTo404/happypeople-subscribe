@@ -1,0 +1,146 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.community__title {
+    font-size: 3rem;
+    letter-spacing: 0.01em;
+    line-height: 1em;
+    color: var(--text-secondary);
+}
+
+.community__paragraph {
+    margin-top: 3.3125rem;
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.3125rem;
+    letter-spacing: 0.01em;
+    width: min(100%, 31.4375rem);
+    color: #FFFFFF;
+}
+
+.content__screens-container {
+    margin-top: 1.625rem;
+    display: flex;
+    width: min(100%, 42.75rem);
+    aspect-ratio: 1.38;
+    gap: 3.05%;
+    justify-content: stretch;
+}
+
+.content__screen {
+    width: 31.3%;
+    display: block;
+}
+
+.content__screen:nth-child(odd) {
+    align-self: flex-end;
+}
+
+.content__screen:nth-child(even) {
+    align-self: flex-start;
+    border-radius: 2.0675rem;
+}
+
+.content__what-you-get {
+    margin-top: 5.4375rem;
+    width: 100%;
+    max-width: 36.6875rem;
+}
+
+.what-you-get__question {
+    font-size: 2rem;
+    line-height: 1em;
+    text-align: left;
+}
+
+.what-you-get__statements-container {
+    margin-top: 2.5625rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.statement {
+    background: white;
+    border-radius: 1.375rem;
+    width: min(22.875rem, 100%);
+    height: 7rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-right: 1em;
+}
+
+.statement:nth-child(even) {
+    align-self: flex-end;
+}
+
+.statement:nth-child(odd) {
+    align-self: flex-start;
+}
+
+.statement__hand {
+    margin-left: 1.8rem;
+    width: 1.9rem;
+    height: 3.625rem;
+}
+
+.statement__text {
+    font-size: 1.375rem;
+    line-height: 1.75rem;
+    margin-left: 1.5em;
+    letter-spacing: 0.01em;
+}
+
+.content__who-else {
+    margin-top: 8rem;
+}
+
+.who-else__question {
+    color: var(--button-secondary);
+    font-size: 2rem;
+    line-height: 1em;
+    letter-spacing: 0.01em;
+}
+
+.who-else__paragraph {
+    margin-top: 1rem;
+    font-size: 1.125rem;
+    line-height: 1.25rem;
+    letter-spacing: 0.01em;
+    color: white;
+    width: 17.72em;
+}
+
+.content__join {
+    margin-top: 2.4375rem;
+}
+
+.join__text {
+    font-size: 1.125rem;
+    line-height: 1.25rem;
+    letter-spacing: 0.01em;
+    padding-right: 4.5em;
+    padding-left: 0.5em;
+}
+
+.content__credentials {
+    margin-top: 17.1875rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-start;
+}
+
+.credential {
+    font-size: 1.125rem;
+    line-height: 1.25rem;
+    letter-spacing: 0.01em;
+    color: #FFFFFF;
+    opacity: 0.5;
+}
+
+

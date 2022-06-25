@@ -10,38 +10,74 @@
   }
 }
 
-.header {
-  display: flex;
-  width: 100%;
-  justify-content: flex-start;
-  align-items: center;
-  font-size: 40px;
-  padding-left: min(2em, 10vw);
-  padding-top: min(1em, 2vh);
-  gap: .2em;
-}
-
 .App {
-  --text-primary: #000347;
-  --text-secondary: #E5FFD5;
-
   margin: 0 auto;
-  width: min(100%, 1462px);
+  width: min(100vw, 91.375rem);
+  font-size: 42px;
 }
 
-.content-wrapper {
+@media screen and (max-width: 1224px) {
+  .App__content {
+    margin-left: 5vw;
+    margin-right: 5vw;
+    padding-top: 10vh;
+  }
+}
+
+@media screen and (min-width: 1224px) {
+  .App__content {
+    padding-left: 6rem;
+    padding-top: 2.25rem;
+  }
+}
+
+.App__content {
   position: relative;
-  width: 100%;
-  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
-.circles-wrapper {
+.App__card-holder_mobile {
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  padding-bottom: 2rem;
+}
+
+.App__card-holder_desktop {
+  position: fixed;
+  overflow: auto;
+  overflow-y: scroll;
+  width: fit-content;
+  top: var(--card-holder-top);
+  bottom: var(--card-holder-bottom);
+  margin: 0 auto;
+  left: 50%;
+}
+
+.App__header {
+  margin-bottom: 5.5rem;
+}
+
+.App__circles {
   position: absolute;
   z-index: -1;
   top: -31%;
-  left: -38%;
-  width: 125%;
-  height: 133%;
+  left: -50%;
+  width: 150%;
+  height: 131%;
+}
+
+.circle:nth-child(1) {
+  right: 0;
+  top: 0;
+}
+
+.circle:nth-child(2) {
+  left: 0;
+  bottom: 0;
 }
 
 .circle {
@@ -62,54 +98,23 @@
   fill: var(--text-secondary);
 }
 
-.color-to-primary {
-  animation: color-change .5s reverse;
-}
-
-.color-to-secondary {
-  animation: color-change .5s;
-}
-
-@keyframes color-change {
-  from {
-    color: var(--text-primary);
-    stroke: var(--text-primary);
-    fill: var(--text-primary);
-  }
-  to {
-    color: var(--text-secondary);
-    stroke: var(--text-secondary);
-    fill: var(--text-secondary);
-  }
-}
-
-.SMS-Text-field fieldset {
-  border-radius: 100px;
-  text-align: center;
-}
-
-.Name-Text-field fieldset {
-  border-radius: 100px;
-  text-align: left;
-}
-
 .card-holder {
-  position: fixed;
-  overflow: auto;
-  overflow-y: scroll;
-  width: fit-content;
-  top: var(--card-holder-top);
-  bottom: var(--card-holder-bottom);
-  margin: 0 auto;
-  left: 50%;
+  /*position: fixed;*/
+  /*overflow: auto;*/
+  /*overflow-y: scroll;*/
+  /*width: fit-content;*/
+  /*top: var(--card-holder-top);*/
+  /*bottom: var(--card-holder-bottom);*/
+  /*margin: 0 auto;*/
+  /*left: 50%;*/
 }
 
 .card-mobile-wrapper {
-  display: flex;
-  width: 100%;
-  height: fit-content;
-  align-items: flex-start;
-  justify-content: center;
+  /*display: flex;*/
+  /*width: 100%;*/
+  /*height: fit-content;*/
+  /*align-items: flex-start;*/
+  /*justify-content: center;*/
 }
 
 .card-holder-right {}
@@ -129,22 +134,6 @@
 @keyframes card-move {
   from {}
   to { transform: translateX(-50%); }
-}
-
-.card {
-  width: min(100vw, 619px);
-  height: min(100vh, 829px);
-  background: white;
-  box-shadow: 0 0 34px rgba(0, 0, 0, 0.08);
-  border-radius: 20px;
-  z-index: 2;
-  position: relative;
-}
-
-.card-content {
-  position: absolute;
-  width: 100%;
-  height: 100%;
 }
 
 .fade-in {
@@ -200,4 +189,14 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+.SMS-Text-field fieldset {
+  border-radius: 100px;
+  text-align: center;
+}
+
+.Name-Text-field fieldset {
+  border-radius: 100px;
+  text-align: left;
 }

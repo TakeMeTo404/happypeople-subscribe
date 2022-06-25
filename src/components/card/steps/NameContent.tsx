@@ -1,6 +1,6 @@
 import React, {memo} from "react";
 import {Container, Stack, TextField, Typography} from "@mui/material";
-import NextButton from "../../buttons/NextButton";
+import NextButton from "../../buttons/NextButton/NextButton";
 import CardContentWrapper from "../CardContentWrapper";
 import BackButton from "../../buttons/BackButton";
 import useActions from "../../../hooks/useActions";

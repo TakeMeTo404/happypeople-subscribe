@@ -1,0 +1,42 @@
+.header {
+    font-weight: 400;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.header__smile {
+    height: 1.5rem;
+    width: 1.25rem;
+    color: inherit;
+    fill: currentColor;
+    margin-top: .2em;
+}
+
+.header__text {
+    color: inherit;
+    line-height: 100%;
+    letter-spacing: 0.01em;
+    padding-left: .1em;
+}
+
+.color-to-primary {
+    animation: color-change .5s reverse;
+}
+
+.color-to-secondary {
+    animation: color-change .5s;
+}
+
+@keyframes color-change {
+    from {
+        color: var(--text-primary);
+        stroke: var(--text-primary);
+        fill: var(--text-primary);
+    }
+    to {
+        color: var(--text-secondary);
+        stroke: var(--text-secondary);
+        fill: var(--text-secondary);
+    }
+}

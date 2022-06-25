@@ -1,0 +1,132 @@
+.phone__photos {
+    margin-top: 2.25rem;
+    width: min(1rem * 459 / 16, 100% - 5vw);
+    height: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5.14%;
+}
+
+.photos__item {
+    height: 100%;
+    display: flex;
+    width: 13.82%;
+    justify-content: center;
+}
+
+.photos__item:first-child {
+    width: 18.97%;
+    justify-content: flex-start;
+
+}
+.photos__item:last-child {
+    justify-content: flex-end;
+}
+
+.photos__item:nth-child(odd) {
+    align-items: flex-start;
+}
+
+.photos__item:nth-child(even) {
+    align-items: flex-end;
+}
+
+.photos__item img {
+    height: 86.6%;
+    aspect-ratio: 1;
+}
+
+.photos__item:nth-child(1) {
+    z-index: 1;
+}
+.photos__item:nth-child(2) {
+    z-index: 2;
+}
+.photos__item:nth-child(3) {
+    z-index: 3;
+}
+.photos__item:nth-child(4) {
+    z-index: 4;
+}
+.photos__item:nth-child(5) {
+    z-index: 2;
+}
+
+.phone__title {
+    margin-top: calc(1rem * 98/16);
+    font-size: 2.25rem;
+    line-height: 2.875rem;
+    letter-spacing: 0.01em;
+    text-align: center;
+    color: var(--text-primary);
+}
+
+.phone__controls {
+    margin-top: calc(1rem * 28/16);
+    width: min(100%, 1rem * 333/16);
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.controls__telephone {
+    font-size: calc(1rem * 21/16);
+    border-radius: calc(1rem * 100 / 16);
+    border: calc(1rem / 16) solid #979797;
+    height: calc(1rem * 50/16);
+    display: flex;
+    align-items: center;
+    color: var(--text-primary);
+    overflow: hidden;
+}
+
+.telephone__code {
+    font-size: inherit;
+    color: inherit;
+    border-right: calc(1rem / 16) solid #979797;
+    padding: 0 1em;
+}
+
+.telephone__number {
+    font-size: inherit;
+    border: none;
+    padding: 0 1em;
+    width: 10em;
+    color: inherit;
+}
+.telephone__number:focus {
+    border: none;
+    outline: none;
+}
+
+.telephone__number textarea {
+    width: 95%;
+}
+
+.phone__agree {
+    margin-bottom: 2rem;
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.agree__checkbox {
+    width: 1.25rem;
+    aspect-ratio: 1;
+}
+
+.agree__text {
+    text-align: left;
+    font-size: calc(1rem * 14/16);
+    line-height: 1em;
+    letter-spacing: 0.02em;
+    color: var(--text-primary);
+}
+
+.text__link {
+    cursor: pointer;
+    text-decoration: underline;
+    color: inherit;
+}
