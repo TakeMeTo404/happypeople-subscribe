@@ -3,11 +3,11 @@ import {CSSTransition} from "react-transition-group";
 import useTypedSelector from "../../hooks/useTypedSelector";
 import useActions from "../../hooks/useActions";
 import {Step} from "../../store/reducers/stepReducer";
-import Phone from "./steps/Phone/Phone";
-import SMS from "./steps/SMS/SMS";
-import Name from "./steps/NameContent";
-import Success from "./steps/SuccessContent";
-import Pay from "./steps/PayContent";
+import Phone from "./steps/phone/Phone";
+import SMS from "./steps/sms/SMS";
+import Name from "./steps/name/Name";
+import Success from "./steps/success/Success";
+import Pay from "./steps/pay/Pay";
 import "./Card.css";
 
 const Card = () => {
@@ -19,7 +19,8 @@ const Card = () => {
             enterActive: "fade-in",
             exitActive: "fade-out"
         }}>
-            <Phone/>
+            {/*<Phone/>*/}
+            <Pay/>
         </CSSTransition>
         <CSSTransition timeout={500} in={step.current === Step.SMS} mountOnEnter unmountOnExit classNames={{
             enterActive: Step.SMS < step.previous ? "fade-in-left" : "fade-in",

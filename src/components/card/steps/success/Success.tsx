@@ -1,14 +1,14 @@
 import React, {memo} from "react";
 import {Avatar, Grid, Stack, Typography, useMediaQuery, useTheme} from "@mui/material";
-import CardBottomButton from "../../buttons/CardBottomButton";
-import DownLoadButton from "../../buttons/DownLoadButton";
-import boris from '../../../assets/img/boris.png';
-import CardContentWrapper from "../CardContentWrapper";
-import BackButton from "../../buttons/BackButton";
+import CardBottomButton from "../../../buttons/CardBottomButton";
+import DownLoadButton from "../../../buttons/DownLoadButton";
+import boris from '../../../../assets/img/boris.png';
+import CardContentWrapper from "../../CardContentWrapper";
+import BackButton from "../../../buttons/BackButton";
 
 type SuccessCardProps = {}
 
-const SuccessContent = ({}: SuccessCardProps) => {
+const Success = ({}: SuccessCardProps) => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('tablet'));
 
@@ -54,4 +54,4 @@ const SuccessContent = ({}: SuccessCardProps) => {
     </CardContentWrapper>;
 }
 
-export default memo(SuccessContent);
+export default memo(Success);

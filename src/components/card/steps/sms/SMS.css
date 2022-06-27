@@ -1,0 +1,49 @@
+.sms__title {
+    margin-top: calc(1rem * 173/16);
+    text-align: center;
+    font-size: calc(1rem * 36/16);
+    line-height: calc(1rem * 46/16);;
+    letter-spacing: 0.01em;
+    color: var(--text-primary);
+}
+
+.sms__controls {
+    margin-top: calc(1rem * 44/16);
+    width: min(1rem * 333/16, 100% - 5vw);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.controls__line-1 {
+    align-self: stretch;
+    display: flex;
+    gap: calc(1rem * 9/16);
+    height: calc(1rem * 50/16);
+}
+
+.line-1__code {
+    flex-grow: 1;
+    font-size: calc(1rem * 21/16);
+    line-height: 1em;
+    letter-spacing: 0.12em;
+    text-align: center;
+    outline: none;
+    border-radius: calc(1rem * 100/16);
+    border: calc(1rem * 1/16) solid rgba(97, 97, 97, .2);
+    color: var(--text-primary);
+}
+
+.line-1__code::placeholder {
+    opacity: 0.2;
+}
+
+.controls__resend {
+    font-size: calc(1rem * 14/16) !important;
+    line-height: 1em !important;
+    letter-spacing: 0.02em;
+    color: var(--text-primary) !important;
+    text-transform: none !important;
+}
