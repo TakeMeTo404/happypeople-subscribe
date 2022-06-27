@@ -12,7 +12,7 @@ const SMS = () => {
         <div className="content__back-button-wrapper">
             <BackButton handleClick={goBack}/>
         </div>
-        <h2 className="sms__title">
+        <h2 className="card__title sms__title">
             Код из СМС
         </h2>
         <div className="sms__controls">

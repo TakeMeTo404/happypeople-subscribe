@@ -18,6 +18,14 @@
     justify-content: flex-start;
 }
 
+.card__title {
+    text-align: center;
+    font-size: calc(1rem * 36/16);
+    line-height: calc(1rem * 46/16);;
+    letter-spacing: 0.01em;
+    color: var(--text-primary);
+}
+
 .content__back-button-wrapper {
     align-self: flex-start;
     width: fit-content;

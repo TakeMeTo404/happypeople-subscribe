@@ -11,7 +11,7 @@ const Name = () => {
         <div className="content__back-button-wrapper">
             <BackButton handleClick={goBack}/>
         </div>
-        <h2 className="name__title">
+        <h2 className="card__title name__title">
             Как вас зовут?
         </h2>
         <p className="name__why">

@@ -15,7 +15,7 @@ const Pay = () => {
         <div className="content__back-button-wrapper">
             <BackButton handleClick={goBack}/>
         </div>
-        <h2 className="pay__title">
+        <h2 className="card__title pay__title">
             Вступайте в сообщество счастливых и расскажите о себе!
         </h2>
         <div className="pay__content">

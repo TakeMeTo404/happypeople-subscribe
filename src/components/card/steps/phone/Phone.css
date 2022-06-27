@@ -55,11 +55,6 @@
 
 .phone__title {
     margin-top: calc(1rem * 98/16);
-    font-size: 2.25rem;
-    line-height: 2.875rem;
-    letter-spacing: 0.01em;
-    text-align: center;
-    color: var(--text-primary);
 }
 
 .phone__controls {

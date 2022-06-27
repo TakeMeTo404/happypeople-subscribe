@@ -29,7 +29,7 @@ const Phone = () => {
                 ))
             }
         </ul>
-        <h2 className="phone__title">
+        <h2 className="card__title phone__title">
             Присоединяйтесь, <br/>
             и расскажите о себе
         </h2>
