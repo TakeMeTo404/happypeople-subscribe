@@ -1,22 +1,44 @@
-@media screen and (min-width: 1700px){
+@media screen and (min-width: calc(1rem * 1700/16)){
   .App {
-    --card-holder-top: 150px;
+    --card-holder-top: calc(1rem * 150/16);
   }
 }
 
-@media screen and (min-width: 1250px) and (max-width: 1700px) {
-  .App {
+@media screen and (min-width: calc(1rem * 1250/16)) and (max-width: calc(1rem * 1700/16)) {
+    .App {
     --card-holder-bottom: 0;
   }
 }
 
-.App {
+.App, .App__card-zone {
   margin: 0 auto;
-  width: min(100vw, 91.375rem);
-  font-size: 42px;
+  width: min(100vw, 1rem * 1462/16);
 }
 
-@media screen and (max-width: 1224px) {
+.App__card-zone {
+  position: fixed;
+  height: min(100vh, 1rem * 829 / 16);
+  border: 3px dashed red;
+  top: var(--card-holder-top);
+  bottom: var(--card-holder-bottom);
+}
+
+.card-holder {
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+}
+
+.card-holder_right {
+  right: 0;
+}
+
+.card-holder_center {
+  right: 50%;
+  transform: translateX(50%);
+}
+
+@media screen and (max-width: calc(1rem * 1224/16)) {
   .App__content {
     margin-left: 5vw;
     margin-right: 5vw;
@@ -24,7 +46,7 @@
   }
 }
 
-@media screen and (min-width: 1224px) {
+@media screen and (min-width: calc(1rem * 1224/16)) {
   .App__content {
     padding-left: 6rem;
     padding-top: 2.25rem;
@@ -44,17 +66,6 @@
   margin-right: auto;
   width: fit-content;
   padding-bottom: 2rem;
-}
-
-.App__card-holder_desktop {
-  position: fixed;
-  overflow: auto;
-  overflow-y: scroll;
-  width: fit-content;
-  top: var(--card-holder-top);
-  bottom: var(--card-holder-bottom);
-  margin: 0 auto;
-  left: 50%;
 }
 
 .App__header {
@@ -98,23 +109,22 @@
   fill: var(--text-secondary);
 }
 
-.card-holder-right {}
-
-.card-holder-center {
-  transform: translateX(-50%);
-}
-
 .card-holder-moving-right {
-  animation: card-move reverse .5s;
-}
-
-.card-holder-moving-center {
   animation: card-move .5s;
 }
 
+.card-holder-moving-center {
+  animation: card-move reverse .5s;
+}
+
 @keyframes card-move {
-  from {}
-  to { transform: translateX(-50%); }
+  from {
+    right: 50%;
+    transform: translateX(50%);
+  }
+  to {
+    right: 0;
+  }
 }
 
 .fade-in {

@@ -6,6 +6,7 @@
     border-radius: 1.25rem;
     z-index: 2;
     position: relative;
+    overflow-y: scroll;
 }
 
 .card__content {
