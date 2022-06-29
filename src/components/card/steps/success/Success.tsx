@@ -5,6 +5,8 @@ import DownLoadButton from "../../../buttons/DownLoadButton";
 import boris from '../../../../assets/img/boris.png';
 import CardContentWrapper from "../../CardContentWrapper";
 import BackButton from "../../../buttons/BackButton";
+import { ReactComponent as Ios}  from '../../../../assets/img/ios.svg';
+import { ReactComponent as Android } from '../../../../assets/img/android.svg';
 import "./Success.css";
 import useActions from "../../../../hooks/useActions";
 
@@ -26,30 +28,38 @@ const Success = ({}: SuccessCardProps) => {
         </h2>
         <section className="success__download">
             <Button className="download-button">
-
+                <Ios className="download-button__icon primary"/>
+                <span className="download-button__text primary">
+                    Скачать в AppStore
+                </span>
             </Button>
             <Button className="download-button">
+                <Android className="download-button__icon primary"/>
+                <span className="download-button__text primary">
+                    Скачать в Google Play
+                </span>
             </Button>
-            {/*<Button>*/}
-            {/*    <div className="download-button">*/}
-
-            {/*    </div>*/}
-            {/*</Button>*/}
-            {/*<Button>*/}
-            {/*    <div className="download-button">*/}
-
-            {/*    </div>*/}
-            {/*</Button>*/}
-            {/*<div className="download-button">*/}
-            {/**/}
-            {/*</div>*/}
         </section>
+        <div className="success__info">
+            {[
+                {text: "до 23 Мар", handleClick: () => console.log("до 23 марта")},
+                {text: "*342 Mastercard", handleClick: () => console.log("*342 Mastercard")},
+                {text: "Отменить?", handleClick: () => console.log("Отменить?")}
+            ].map(({text, handleClick}) =>
+                <Button onClick={handleClick} className="info__button">
+                    <span className="info__text">
+                        {text}
+                    </span>
+                </Button>
+            )
+            }
+        </div>
 
 {/*        <Stack spacing={2} alignItems="stretch" width="min(100%, 266px)" sx={{mt: 5}}>
             <DownLoadButton variant="ios"/>
             <DownLoadButton variant="android"/>
         </Stack>*/}
-        <Stack justifyContent="flex-end" flexGrow={1}>
+{/*        <Stack justifyContent="flex-end" flexGrow={1}>
             <Grid container spacing={1} alignItems="center" justifyContent="center" sx={{opacity: 0.5}}>
                 {[
                     {text: "до 23 Мар", handleClick: () => console.log("до 23 марта")},
@@ -62,7 +72,7 @@ const Success = ({}: SuccessCardProps) => {
                 )
                 }
             </Grid>
-        </Stack>
+        </Stack>*/}
     </div>;
 }
 

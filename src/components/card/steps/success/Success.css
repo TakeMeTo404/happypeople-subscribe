@@ -26,11 +26,15 @@
 }
 
 .download-button {
-    border-radius: calc(1rem * 100/16);
+    border-radius: calc(1rem * 100/16) !important;
     background: var(--button-secondary);
+    background-color: var(--button-secondary) !important;
     height: calc(1rem * 70/16);
     width: calc(1rem * 266/16);
-    color: var(--text-primary);
+    color: var(--text-primary) !important;
+    display: flex !important;
+    justify-content: center !important;
+    gap: .5rem;
 }
 
 .download-button:hover {
@@ -39,3 +43,40 @@
     background: var(--button-secondary) !important;
     transform: scale(1.02);
 }
+
+.download-button__icon {
+    height: calc(1rem * 21/16);
+}
+
+.download-button__text {
+    font-size: calc(1rem * 18/16);
+    line-height: calc(1rem * 24/16);;
+    letter-spacing: 0.01em;
+    text-transform: none !important;
+}
+
+.success__info {
+    margin-top: auto;
+    margin-bottom: calc(1rem * 39/16);
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.info__button {}
+
+.info__button:hover {
+    transition: .4s;
+    transform: scale(1.05);
+}
+
+.info__text {
+    color: var(--text-primary);
+    opacity: 0.5;
+    letter-spacing: 0.01em;
+    font-size: calc(1rem * 14/16);
+    line-height: calc(1rem * 14/16);
+    text-transform: none !important;
+}
+
+
