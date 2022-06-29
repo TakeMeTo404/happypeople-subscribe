@@ -1,7 +1,7 @@
 import React, {memo} from "react";
 import {Button} from "@mui/material";
-import NextButton from "../../../buttons/NextButton/NextButton";
-import BackButton from "../../../buttons/BackButton";
+import NextButton from "../../../buttons/next/NextButton";
+import BackButton from "../../../buttons/back/BackButton";
 import useActions from "../../../../hooks/useActions";
 import "./SMS.css";
 

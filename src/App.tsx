@@ -16,11 +16,6 @@ function App() {
     const step = useTypedSelector(state => state.step.current);
     const {goNext, goBack} = useActions();
 
-    useEffect(() => {
-        // setTimeout(goNext, 3000)
-        // setTimeout(goBack, 6000)
-    }, [])
-
     return (
         <div className="App">
             {

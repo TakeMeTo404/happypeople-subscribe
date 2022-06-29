@@ -126,6 +126,8 @@
     letter-spacing: 0.01em;
     padding-right: 4.5em;
     padding-left: 0.5em;
+    text-transform: none;
+    color: var(--text-primary);
 }
 
 .content__credentials {
@@ -133,6 +135,7 @@
     display: flex;
     gap: 2rem;
     justify-content: flex-start;
+    padding-bottom: calc(1rem * 555/16);
 }
 
 .credential {

@@ -1,6 +1,7 @@
 import {memo} from "react";
 import {IconButton} from "@mui/material";
-import {ReactComponent as Back} from "../../assets/img/back.svg";
+import {ReactComponent as Back} from "../../../assets/img/back.svg";
+import "./BackButton.css";
 
 type BackButtonProps = {
     handleClick?: () => void;
@@ -8,7 +9,7 @@ type BackButtonProps = {
 
 const BackButton = ({handleClick}: BackButtonProps) => {
     return <IconButton onClick={handleClick}>
-        <Back height="4rem" width="4rem"/>
+        <Back className="back-button"/>
     </IconButton>;
 }
 

@@ -1,7 +1,7 @@
 import React, {memo} from "react";
 import "./Content.css";
 import {ReactComponent as Hand} from "../../assets/img/hand.svg";
-import NextButton from "../buttons/NextButton/NextButton";
+import NextButton from "../buttons/next/NextButton";
 import screen1 from '../../assets/img/screen1.png';
 import screen2 from '../../assets/img/screen2.png';
 import screen3 from '../../assets/img/screen3.png';
@@ -40,8 +40,8 @@ const Content = () => {
                     <>Получайте отзывы на<br/>ваши продукты и услуги</>,
                     <>Знакомьтесь и находите<br/>новых друзей</>,
                     <>Предложите продукты<br/>частью #счастливых</>
-                ].map((text) => (
-                    <li className="statement primary">
+                ].map((text, index) => (
+                    <li key={index} className="statement primary">
                         <Hand className="statement__hand"/>
                         <h3 className="statement__text">
                             {text}

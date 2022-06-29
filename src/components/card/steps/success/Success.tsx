@@ -1,20 +1,13 @@
 import React, {memo} from "react";
-import {Avatar, Button, Grid, Stack, Typography, useMediaQuery, useTheme} from "@mui/material";
-import CardBottomButton from "../../../buttons/CardBottomButton";
-import DownLoadButton from "../../../buttons/DownLoadButton";
+import { Button} from "@mui/material";
 import boris from '../../../../assets/img/boris.png';
-import CardContentWrapper from "../../CardContentWrapper";
-import BackButton from "../../../buttons/BackButton";
 import { ReactComponent as Ios}  from '../../../../assets/img/ios.svg';
 import { ReactComponent as Android } from '../../../../assets/img/android.svg';
-import "./Success.css";
+import BackButton from "../../../buttons/back/BackButton";
 import useActions from "../../../../hooks/useActions";
+import "./Success.css";
 
-type SuccessCardProps = {}
-
-const Success = ({}: SuccessCardProps) => {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('tablet'));
+const Success = () => {
     const {goBack} = useActions();
 
     return <div className="card__content name">
@@ -45,34 +38,14 @@ const Success = ({}: SuccessCardProps) => {
                 {text: "до 23 Мар", handleClick: () => console.log("до 23 марта")},
                 {text: "*342 Mastercard", handleClick: () => console.log("*342 Mastercard")},
                 {text: "Отменить?", handleClick: () => console.log("Отменить?")}
-            ].map(({text, handleClick}) =>
-                <Button onClick={handleClick} className="info__button">
+            ].map(({text, handleClick}, index) =>
+                <Button key={index} onClick={handleClick} className="info__button">
                     <span className="info__text">
                         {text}
                     </span>
                 </Button>
-            )
-            }
+            )}
         </div>
-
-{/*        <Stack spacing={2} alignItems="stretch" width="min(100%, 266px)" sx={{mt: 5}}>
-            <DownLoadButton variant="ios"/>
-            <DownLoadButton variant="android"/>
-        </Stack>*/}
-{/*        <Stack justifyContent="flex-end" flexGrow={1}>
-            <Grid container spacing={1} alignItems="center" justifyContent="center" sx={{opacity: 0.5}}>
-                {[
-                    {text: "до 23 Мар", handleClick: () => console.log("до 23 марта")},
-                    {text: "*342 Mastercard", handleClick: () => console.log("*342 Mastercard")},
-                    {text: "Отменить?", handleClick: () => console.log("Отменить?")}
-                ].map((props) =>
-                    <Grid item key={props.text}>
-                        <CardBottomButton {...props}/>
-                    </Grid>
-                )
-                }
-            </Grid>
-        </Stack>*/}
     </div>;
 }
 

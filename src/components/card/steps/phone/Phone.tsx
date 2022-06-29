@@ -5,7 +5,7 @@ import photo3 from '../../../../assets/img/photo-3.png';
 import photo4 from '../../../../assets/img/photo-4.png';
 import photo5 from '../../../../assets/img/photo-5.png';
 import checked from '../../../../assets/img/checked.svg';
-import NextButton from "../../../buttons/NextButton/NextButton";
+import NextButton from "../../../buttons/next/NextButton";
 import useActions from "../../../../hooks/useActions";
 import "./Phone.css";
 

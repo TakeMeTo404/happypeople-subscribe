@@ -10,7 +10,7 @@
     align-items: stretch;
     justify-content: flex-start;
     gap: calc(1rem * 56/16);
-    width: min(1rem * 501/16, 100% - 5vw);
+    width: min(1rem * 501/16, 95%);
 }
 
 .pay__bottom {
@@ -49,4 +49,5 @@
     padding-right: 1em;
     line-height: 1em;
     color: white;
+    text-transform: none;
 }

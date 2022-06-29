@@ -28,10 +28,10 @@ const NextButton = ({handleClick, children, color}: NextButtonProps) => {
         }
     )
 
-    return <button className={buttonClasses} onClick={handleClick}>
+    return <Button className={buttonClasses} onClick={handleClick}>
         {children}
         <ArrowRight className={iconClasses}/>
-    </button>;
+    </Button>;
 }
 
 export default memo(NextButton);

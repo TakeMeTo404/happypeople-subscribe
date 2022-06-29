@@ -1,14 +1,11 @@
 import React, {memo} from "react";
-import {Grid, Stack, Typography, useMediaQuery, useTheme} from "@mui/material";
 import CloudPaymentsForm from "../../../CloudPaymentsForm";
-import NextButton from "../../../buttons/NextButton/NextButton";
+import NextButton from "../../../buttons/next/NextButton";
 import useActions from "../../../../hooks/useActions";
-import BackButton from "../../../buttons/BackButton";
+import BackButton from "../../../buttons/back/BackButton";
 import "./Pay.css";
 
 const Pay = () => {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('tablet'));
     const {goNext, goBack} = useActions();
 
     return <div className="card__content name">
@@ -29,7 +26,7 @@ const Pay = () => {
                 </h4>
                 <div className="pay__next-button-wrapper">
                     <NextButton color="primary" handleClick={goNext}>
-                        <span className="pay__next-button-title">
+                    <span className="pay__next-button-title">
                             Оформить
                         </span>
                     </NextButton>

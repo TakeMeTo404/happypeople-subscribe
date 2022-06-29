@@ -1,0 +1,47 @@
+.next-button {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: 3.125rem;
+    border-radius: 6.25rem !important;
+    width: fit-content;
+    min-width: calc(1rem * 30/16) !important;
+    border: none;
+    padding-right: calc(1rem * 22/16) !important;
+    padding-left: calc(1rem * 21/16) !important;
+    cursor: pointer;
+}
+
+.next-button:hover {
+    transition: .5s;
+    transform: scale(1.04);
+}
+
+.next-button:not(:hover) {
+    transition: .2s;
+}
+
+.next-button_primary {
+    background: var(--text-primary) !important;
+    background-color: var(--text-primary) !important;
+}
+
+.next-button_primary:hover,
+.next-button_primary:active {
+    filter: brightness(1.15);
+}
+
+.next-button_secondary {
+    background: var(--button-secondary) !important;
+    background-color: var(--button-secondary) !important;
+}
+
+.next-button_secondary:hover {
+    filter: brightness(.95);
+}
+
+.next-button__icon {
+    height: 2rem;
+}
+
+

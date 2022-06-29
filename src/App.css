@@ -98,25 +98,6 @@
   fill: var(--text-secondary);
 }
 
-.card-holder {
-  /*position: fixed;*/
-  /*overflow: auto;*/
-  /*overflow-y: scroll;*/
-  /*width: fit-content;*/
-  /*top: var(--card-holder-top);*/
-  /*bottom: var(--card-holder-bottom);*/
-  /*margin: 0 auto;*/
-  /*left: 50%;*/
-}
-
-.card-mobile-wrapper {
-  /*display: flex;*/
-  /*width: 100%;*/
-  /*height: fit-content;*/
-  /*align-items: flex-start;*/
-  /*justify-content: center;*/
-}
-
 .card-holder-right {}
 
 .card-holder-center {
@@ -170,33 +151,33 @@
 }
 
 @keyframes fade-left {
-  from {
+  0% {
     opacity: 0;
     transform: translateX(-200%);
   }
-  to {
+
+  70% {
+    opacity: 0.3;
+  }
+
+  100% {
     opacity: 1;
     transform: translateX(0);
   }
 }
 
 @keyframes fade-right {
-  from {
+  0% {
     opacity: 0;
     transform: translateX(200%);
   }
-  to {
+
+  70% {
+    opacity: 0.3;
+  }
+
+  100% {
     opacity: 1;
     transform: translateX(0);
   }
-}
-
-.SMS-Text-field fieldset {
-  border-radius: 100px;
-  text-align: center;
-}
-
-.Name-Text-field fieldset {
-  border-radius: 100px;
-  text-align: left;
 }
