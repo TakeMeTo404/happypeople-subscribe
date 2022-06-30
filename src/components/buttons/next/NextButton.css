@@ -41,7 +41,8 @@
 }
 
 .next-button__icon {
-    height: 2rem;
+    height: 1.5rem;
+    width: calc(1.5rem * 19/21);
 }
 
 

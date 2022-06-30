@@ -9,7 +9,7 @@ import Header from "./components/Header/Header";
 import './App.css';
 
 function App() {
-    const isTabletOrMobile = useMediaQuery({query: '(max-width: 1224px)'})
+    const isTabletOrMobile = useMediaQuery({query: '(max-width: calc(2 * 1rem * 619/16))'})
     const step = useTypedSelector(state => state.step.current);
 
     return (

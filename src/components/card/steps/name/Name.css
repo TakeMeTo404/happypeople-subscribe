@@ -20,6 +20,10 @@
     gap: calc(1rem * 9/16);
 }
 
+.name__controls > button {
+    flex-shrink: 0;
+}
+
 .controls__name {
     flex-grow: 1;
     text-align: left;

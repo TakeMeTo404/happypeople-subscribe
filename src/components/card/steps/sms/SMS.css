@@ -32,6 +32,10 @@
     color: var(--text-primary);
 }
 
+.controls__line-1 > button {
+    flex-shrink: 0;
+}
+
 .line-1__code::placeholder {
     opacity: 0.2;
 }
