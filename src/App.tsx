@@ -40,11 +40,11 @@ function App() {
                 <div className="App__card-zone">
                     <CSSTransition in={step === Step.PHONE} appear timeout={{appear: 0, enter: 500, exit: 500}}
                                    classNames={{
-                                       appearDone: 'card-holder_right',
-                                       enterActive: 'card-holder-moving-right',
-                                       enterDone: 'card-holder_right',
-                                       exitActive: 'card-holder-moving-center',
-                                       exitDone: 'card-holder_center'
+                                       appearDone: 'card-right',
+                                       enterActive: 'card-move-right',
+                                       enterDone: 'card-right',
+                                       exitActive: 'card-move-center',
+                                       exitDone: 'card-center'
                                    }}>
                             <div className="card-holder">
                                 <Card/>

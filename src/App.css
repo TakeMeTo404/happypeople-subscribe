@@ -30,15 +30,6 @@
   height: fit-content;
 }
 
-.card-holder_right {
-  right: 0;
-}
-
-.card-holder_center {
-  right: 50%;
-  transform: translateX(50%);
-}
-
 @media screen and (max-width: calc(1rem * 1224/16)) {
   .App__content {
     margin-left: 5vw;
@@ -85,12 +76,20 @@
   fill: var(--text-secondary);
 }
 
-.card-holder-moving-right {
-  animation: card-move .5s;
+.card-right {
+  right: 0;
 }
 
-.card-holder-moving-center {
-  animation: card-move reverse .5s;
+.card-center {
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.card-move-right {
+  animation: card-move .5s forwards;
+}
+.card-move-center {
+  animation: card-move reverse .5s forwards;
 }
 
 @keyframes card-move {
