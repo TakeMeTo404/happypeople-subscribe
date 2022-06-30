@@ -1,17 +1,14 @@
-import {memo, useEffect, useState} from "react";
+import { memo } from "react";
 import {CSSTransition} from "react-transition-group";
 import {ReactComponent as Smile} from "../../assets/img/smile.svg";
+import useTypedSelector from "../../hooks/useTypedSelector";
 import "./Header.css";
+import {Step} from "../../store/reducers/stepReducer";
 
 const Header = () => {
-    const [state, setState] = useState<0 | 1>(0);
+    const {current} = useTypedSelector(state => state.step);
 
-    useEffect(() => {
-        setTimeout(() => setState(1), 3000)
-        setTimeout(() => setState(0), 6000)
-    }, [])
-
-    return <CSSTransition timeout={500} in={state === 0} appear classNames={{
+    return <CSSTransition timeout={500} in={current === Step.PHONE} appear classNames={{
         appearDone: "secondary",
         enterActive: "color-to-secondary",
         enterDone: "secondary",

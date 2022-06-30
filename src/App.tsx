@@ -25,7 +25,7 @@ function App() {
                 <div className="App__header">
                     <Header/>
                 </div>
-                <CSSTransition mountOnEnter in={step === Step.PHONE} timeout={500}
+                <CSSTransition in={step === Step.PHONE} timeout={500}
                                classNames={{
                                    enterActive: 'fade-in',
                                    exitActive: 'fade-out',
@@ -38,7 +38,7 @@ function App() {
 
             {!isTabletOrMobile &&
                 <div className="App__card-zone">
-                    <CSSTransition in={step === Step.PHONE} appear timeout={500}
+                    <CSSTransition in={step === Step.PHONE} appear timeout={{appear: 0, enter: 500, exit: 500}}
                                    classNames={{
                                        appearDone: 'card-holder_right',
                                        enterActive: 'card-holder-moving-right',

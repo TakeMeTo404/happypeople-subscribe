@@ -20,9 +20,11 @@
   height: min(100vh, 1rem * 829 / 16);
   top: var(--card-holder-top);
   bottom: var(--card-holder-bottom);
+  pointer-events: none;
 }
 
 .card-holder {
+  pointer-events: all;
   position: absolute;
   width: fit-content;
   height: fit-content;
@@ -70,31 +72,6 @@
 .App__header {
   margin-bottom: 5.5rem;
 }
-
-/*.App__circles {
-  position: absolute;
-  z-index: -1;
-  top: -31%;
-  left: -50%;
-  width: 150%;
-  height: 131%;
-}*/
-
-/*.circle:nth-child(1) {
-  right: 0;
-  top: 0;
-}
-
-.circle:nth-child(2) {
-  left: 0;
-  bottom: 0;
-}*/
-
-/*.circle {
-  position: absolute;
-  width: 88%;
-  aspect-ratio: 1;
-}*/
 
 .primary {
   color: var(--text-primary);
