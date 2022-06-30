@@ -18,8 +18,7 @@ const Card = () => {
             exitActive: "fade-out-left",
             exitDone: "hidden"
         }}>
-            {/*<Phone/>*/}
-            <Pay/>
+            <Phone/>
         </CSSTransition>
         <CSSTransition timeout={500} in={step.current === Step.SMS} mountOnEnter unmountOnExit classNames={{
             enterActive: Step.SMS < step.previous ? "fade-in-left" : "fade-in-right",

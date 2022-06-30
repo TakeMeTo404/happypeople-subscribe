@@ -1,8 +1,6 @@
 import React from 'react';
 import {useMediaQuery} from 'react-responsive'
 import Content from "./components/content/Content";
-import circleUp from "./assets/img/circleUp.png";
-import circleBottom from "./assets/img/circleBottom.png";
 import {CSSTransition} from "react-transition-group";
 import Card from "./components/card/Card";
 import useTypedSelector from "./hooks/useTypedSelector";
@@ -35,18 +33,6 @@ function App() {
                                }}
                 >
                     <Content/>
-                </CSSTransition>
-                <CSSTransition mountOnEnter in={step === Step.PHONE} timeout={500}
-                               classNames={{
-                                   enterActive: 'fade-in',
-                                   exitActive: 'fade-out',
-                                   exitDone: 'hidden'
-                               }}
-                >
-                    <div className="App__circles">
-                        <img src={circleUp} className="circle" style={{right: 0, top: 0}}/>
-                        <img src={circleBottom} className="circle" style={{left: 0, bottom: 0}}/>
-                    </div>
                 </CSSTransition>
             </div>
 

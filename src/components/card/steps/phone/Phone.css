@@ -37,20 +37,32 @@
     aspect-ratio: 1;
 }
 
-.photos__item:nth-child(1) {
+.photos__item img:nth-child(1) {
     z-index: 1;
 }
-.photos__item:nth-child(2) {
+.photos__item img:nth-child(2) {
     z-index: 2;
 }
-.photos__item:nth-child(3) {
+.photos__item img:nth-child(3) {
     z-index: 3;
 }
-.photos__item:nth-child(4) {
+.photos__item img:nth-child(4) {
     z-index: 4;
 }
-.photos__item:nth-child(5) {
+.photos__item img:nth-child(5) {
     z-index: 2;
+}
+
+.photos__item img:hover {
+    transition: .3s;
+    z-index: 5;
+    cursor: pointer;
+    transform: scale(1.1);
+    filter: brightness(.8);
+}
+
+.photos__item img:not(:hover) {
+    transition: .3s;
 }
 
 .phone__title {
@@ -59,6 +71,7 @@
 
 .phone__controls {
     margin-top: calc(1rem * 28/16);
+    padding-bottom: 2rem;
     width: min(100%, 1rem * 333/16);
     display: flex;
     justify-content: center;
@@ -100,7 +113,7 @@
 }
 
 .phone__agree {
-    margin-bottom: 2rem;
+    padding-bottom: 2rem;
     margin-top: auto;
     display: flex;
     justify-content: center;

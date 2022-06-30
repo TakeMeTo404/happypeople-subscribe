@@ -29,6 +29,12 @@
     aspect-ratio: 1.38;
     gap: 3.05%;
     justify-content: stretch;
+
+    position: relative;
+}
+
+.screen-container__up-anchor {
+
 }
 
 .content__screen {
@@ -42,7 +48,6 @@
 
 .content__screen:nth-child(even) {
     align-self: flex-start;
-    border-radius: 2.0675rem;
 }
 
 .content__what-you-get {
@@ -113,7 +118,7 @@
     line-height: 1.25rem;
     letter-spacing: 0.01em;
     color: white;
-    width: 17.72em;
+    width: min(17.72em, 100%);
 }
 
 .content__join {
@@ -135,7 +140,6 @@
     display: flex;
     gap: 2rem;
     justify-content: flex-start;
-    padding-bottom: calc(1rem * 555/16);
 }
 
 .credential {
@@ -144,6 +148,36 @@
     letter-spacing: 0.01em;
     color: #FFFFFF;
     opacity: 0.5;
+}
+
+.content__circle-anchor {
+    width: 1px;
+    height: 1px;
+    z-index: -1;
+}
+
+.content__circle-anchor > img {
+    width: calc(min(1rem * 319/16, 100vw) * 1692/319);
+    aspect-ratio: 1;
+    position: absolute;
+}
+
+.circle-anchor_up {
+    top: 15.4%;
+    left: 34.2%;
+    position: absolute;
+}
+
+.circle-anchor_bottom {
+    margin-left: 4rem;
+}
+
+.circle-anchor_up > img {
+    transform: translateX(-50%) translateY(-100%);
+}
+
+.circle-anchor_bottom > img {
+    transform: translateX(-50%) translateY(-50%);
 }
 
 

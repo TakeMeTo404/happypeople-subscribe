@@ -4,6 +4,7 @@
 
 .sms__controls {
     margin-top: calc(1rem * 44/16);
+    padding-bottom: 1rem;
     width: min(1rem * 333/16, 100% - 5vw);
     display: flex;
     flex-direction: column;

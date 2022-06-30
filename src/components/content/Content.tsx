@@ -5,6 +5,8 @@ import NextButton from "../buttons/next/NextButton";
 import screen1 from '../../assets/img/screen1.png';
 import screen2 from '../../assets/img/screen2.png';
 import screen3 from '../../assets/img/screen3.png';
+import circleUp from '../../assets/img/circleUp.png';
+import circleBottom from '../../assets/img/circleBottom.png';
 
 const Content = () => {
     const onClickJoin = () => {
@@ -28,6 +30,10 @@ const Content = () => {
             <img src={screen1} alt="Скрин 1 приложения #счастливые" className="content__screen"/>
             <img src={screen2} alt="Скрин 2 приложения #счастливые" className="content__screen"/>
             <img src={screen3} alt="Скрин 3 приложения #счастливые" className="content__screen"/>
+
+            <div className="content__circle-anchor circle-anchor_up">
+                <img src={circleUp} alt="Синий круг для дизайна"/>
+            </div>
         </div>
         <section className="content__what-you-get">
             <h2 className="what-you-get__question">
@@ -62,10 +68,13 @@ const Content = () => {
         </section>
         <div className="content__join">
             <NextButton handleClick={onClickJoin} color="secondary">
-                <h3 className="join__text">
+                <span className="join__text">
                     Присоединиться
-                </h3>
+                </span>
             </NextButton>
+        </div>
+        <div className="content__circle-anchor circle-anchor_bottom">
+            <img src={circleBottom} alt="Синий круг для дизайна"/>
         </div>
         <section className="content__credentials">
             <h4 className="credential">ИП Акимов Б.А.</h4>
