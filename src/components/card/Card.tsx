@@ -1,7 +1,7 @@
 import React, {memo} from "react";
 import {CSSTransition} from "react-transition-group";
-import useTypedSelector from "../../hooks/useTypedSelector";
-import {Step} from "../../store/reducers/stepReducer";
+import {useAppSelector} from "../../hooks/redux";
+import {Step} from "../../store/reducers/stepSlice";
 import Phone from "./steps/phone/Phone";
 import SMS from "./steps/sms/SMS";
 import Name from "./steps/name/Name";
@@ -10,7 +10,7 @@ import Pay from "./steps/pay/Pay";
 import "./Card.css";
 
 const Card = () => {
-    const step = useTypedSelector(state => state.step);
+    const step = useAppSelector(state => state.step);
 
     return <div className="card">
         <CSSTransition timeout={500} in={step.current === Step.PHONE} mountOnEnter unmountOnExit classNames={{

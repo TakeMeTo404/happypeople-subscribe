@@ -1,20 +1,22 @@
 import {applyMiddleware, combineReducers, compose, createStore} from "redux";
-import stepReducer from "./reducers/stepReducer";
-import thunk from "redux-thunk";
-import {composeWithDevTools} from "redux-devtools-extension";
+import stepReducer from "./reducers/stepSlice";
+import {configureStore} from "@reduxjs/toolkit";
+import {happyApi} from "../services/HappyService";
 
 const rootReducer = combineReducers({
-    step: stepReducer
+    step: stepReducer,
+    [happyApi.reducerPath]: happyApi.reducer,
+})
+
+const setupStore = () => configureStore({
+    devTools: true,
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(happyApi.middleware)
 })
 
 export type RootState = ReturnType<typeof rootReducer>;
+export type AppStore = ReturnType<typeof setupStore>;
+export type AppDispatch = AppStore['dispatch'];
 
-// const r = compose(rootReducer, applyMiddleware(thunk), composeWithDevTools());
-
-export default createStore(
-    rootReducer,
-    composeWithDevTools(
-        applyMiddleware(thunk)
-    )
-);
-
+export const store = setupStore();

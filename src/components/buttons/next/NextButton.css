@@ -23,7 +23,7 @@
 
 .next-button_primary {
     background: var(--text-primary) !important;
-    background-color: var(--text-primary) !important;
+    background-color: rgba(var(--text-primary), 1) !important;
 }
 
 .next-button_primary:hover,

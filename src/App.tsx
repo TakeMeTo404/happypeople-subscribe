@@ -3,22 +3,21 @@ import {useMediaQuery} from 'react-responsive'
 import Content from "./components/content/Content";
 import {CSSTransition} from "react-transition-group";
 import Card from "./components/card/Card";
-import useTypedSelector from "./hooks/useTypedSelector";
-import {Step} from "./store/reducers/stepReducer";
+import {useAppSelector} from "./hooks/redux";
+import {Step} from "./store/reducers/stepSlice";
 import Header from "./components/Header/Header";
 import './App.css';
 
 function App() {
     const isTabletOrMobile = useMediaQuery({query: '(max-width: calc(2 * 1rem * 619/16))'})
-    const step = useTypedSelector(state => state.step.current);
+    const step = useAppSelector(state => state.step.current);
 
     return (
         <div className="App">
-            {
-                isTabletOrMobile &&
-                    <div className="App__card-holder_mobile">
-                        <Card/>
-                    </div>
+            {isTabletOrMobile &&
+                <div className="App__card-holder_mobile">
+                    <Card/>
+                </div>
             }
 
             <div className="App__content">
@@ -51,7 +50,7 @@ function App() {
                             </div>
                     </CSSTransition>
                 </div>
-                }
+            }
         </div>
     );
 }

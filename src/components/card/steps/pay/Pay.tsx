@@ -1,16 +1,19 @@
 import React, {memo} from "react";
 import CloudPaymentsForm from "../../../CloudPaymentsForm";
 import NextButton from "../../../buttons/next/NextButton";
-import useActions from "../../../../hooks/useActions";
+import {useAppDispatch} from "../../../../hooks/redux";
 import BackButton from "../../../buttons/back/BackButton";
+import {stepSlice} from "../../../../store/reducers/stepSlice";
+
 import "./Pay.css";
 
 const Pay = () => {
-    const {goNext, goBack} = useActions();
+    const dispatch = useAppDispatch();
+    const {next, back} = stepSlice.actions;
 
     return <div className="card__content name">
         <div className="content__back-button-wrapper">
-            <BackButton handleClick={goBack}/>
+            <BackButton handleClick={() => dispatch(back())}/>
         </div>
         <h2 className="card__title pay__title">
             Вступайте в сообщество счастливых и расскажите о себе!
@@ -25,7 +28,7 @@ const Pay = () => {
                     ₽<br/>в месяц
                 </h4>
                 <div className="pay__next-button-wrapper">
-                    <NextButton color="primary" handleClick={goNext}>
+                    <NextButton color="primary" handleClick={() => dispatch(next())}>
                     <span className="pay__next-button-title">
                             Оформить
                         </span>

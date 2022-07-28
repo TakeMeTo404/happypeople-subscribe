@@ -71,11 +71,19 @@
 
 .phone__controls {
     margin-top: calc(1rem * 28/16);
-    padding-bottom: 2rem;
     width: min(100%, 1rem * 333/16);
+    padding-bottom: 2rem;
+    flex-direction: column;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     gap: 0.5rem;
+}
+
+.controls__line-1 {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
 }
 
 .controls__telephone {
@@ -110,6 +118,11 @@
 
 .telephone__number textarea {
     width: 95%;
+}
+
+.controls__error {
+    color: var(--text-error);
+    font-size: calc(1rem * 14/16);
 }
 
 .phone__agree {

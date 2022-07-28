@@ -1,15 +1,18 @@
 import React, {memo} from "react";
 import NextButton from "../../../buttons/next/NextButton";
 import BackButton from "../../../buttons/back/BackButton";
-import useActions from "../../../../hooks/useActions";
+import {useAppDispatch} from "../../../../hooks/redux";
+import {stepSlice} from "../../../../store/reducers/stepSlice";
+
 import "./Name.css";
 
 const Name = () => {
-    const {goNext, goBack} = useActions();
+    const dispatch = useAppDispatch();
+    const {next, back} = stepSlice.actions;
 
     return <div className="card__content name">
         <div className="content__back-button-wrapper">
-            <BackButton handleClick={goBack}/>
+            <BackButton handleClick={() => dispatch(back())}/>
         </div>
         <h2 className="card__title name__title">
             Как вас зовут?
@@ -20,7 +23,7 @@ const Name = () => {
         </p>
         <div className="name__controls">
             <input className="controls__name" placeholder="Борис"/>
-            <NextButton handleClick={goNext} color="primary"/>
+            <NextButton handleClick={() => dispatch(next())} color="primary"/>
         </div>
     </div>;
 };

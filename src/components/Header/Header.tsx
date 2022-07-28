@@ -1,12 +1,12 @@
 import { memo } from "react";
 import {CSSTransition} from "react-transition-group";
 import {ReactComponent as Smile} from "../../assets/img/smile.svg";
-import useTypedSelector from "../../hooks/useTypedSelector";
+import {useAppSelector} from "../../hooks/redux";
 import "./Header.css";
-import {Step} from "../../store/reducers/stepReducer";
+import {Step} from "../../store/reducers/stepSlice";
 
 const Header = () => {
-    const {current} = useTypedSelector(state => state.step);
+    const {current} = useAppSelector(state => state.step);
 
     return <CSSTransition timeout={500} in={current === Step.PHONE} appear classNames={{
         appearDone: "secondary",

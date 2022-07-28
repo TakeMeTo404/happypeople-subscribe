@@ -4,15 +4,17 @@ import boris from '../../../../assets/img/boris.png';
 import { ReactComponent as Ios}  from '../../../../assets/img/ios.svg';
 import { ReactComponent as Android } from '../../../../assets/img/android.svg';
 import BackButton from "../../../buttons/back/BackButton";
-import useActions from "../../../../hooks/useActions";
+import {useAppDispatch} from "../../../../hooks/redux";
+import {stepSlice} from "../../../../store/reducers/stepSlice";
 import "./Success.css";
 
 const Success = () => {
-    const {goBack} = useActions();
+    const dispatch = useAppDispatch();
+    const {back} = stepSlice.actions;
 
     return <div className="card__content name">
         <div className="content__back-button-wrapper">
-            <BackButton handleClick={goBack}/>
+            <BackButton handleClick={() => dispatch(back())}/>
         </div>
         <img src={boris} alt="Ваш аватар" className="success__avatar"/>
         <h2 className="card__title success__title">
