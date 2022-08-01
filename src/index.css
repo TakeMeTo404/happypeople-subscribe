@@ -20,11 +20,11 @@ body {
 }
 
 body {
-  /*--text-primary: #000347;*/
-  --text-primary: 0, 3, 47;
+  --text-primary: #000347;
   --text-secondary: #E5FFD5;
   --text-error: red;
   --button-secondary: #E5FFD4;
+  --primary-rgb: 0, 3, 47;
 }
 
 * {

@@ -2,7 +2,7 @@
     --enter-timeout: .3s;
     --exit-timeout: .15s;
 
-    --bg-color: var(--text-primary);
+    --bg-color: var(--primary-rgb);
     --bg-alpha: .3;
 
     position: sticky;
@@ -17,7 +17,7 @@
 }
 
 .loader-bg_dark {
-    background-color: rgba(var(--text-primary), var(--bg-alpha));
+    background-color: rgba(var(--bg-color), var(--bg-alpha));
 }
 
 .loader-bg_lightening {
@@ -25,15 +25,15 @@
 }
 
 .loader-bg_light {
-    background-color: rgba(var(--text-primary), 0);
+    background-color: rgba(var(--bg-color), 0);
 }
 
 @keyframes loader-bg-darkening {
     from {
-        background-color: rgba(var(--text-primary), 0);
+        background-color: rgba(var(--bg-color), 0);
     }
     to {
-        background-color: rgba(var(--text-primary), var(--bg-alpha));
+        background-color: rgba(var(--bg-color), var(--bg-alpha));
     }
 }
 

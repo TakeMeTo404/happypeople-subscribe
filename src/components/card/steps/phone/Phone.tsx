@@ -1,4 +1,4 @@
-import React, {memo, SyntheticEvent, useCallback, useEffect, useRef, useState} from "react";
+import React, {memo, useCallback, useEffect, useRef, useState} from "react";
 import photo1 from '../../../../assets/img/photo-1.png';
 import photo2 from '../../../../assets/img/photo-2.png';
 import photo3 from '../../../../assets/img/photo-3.png';
@@ -38,9 +38,10 @@ const validate = (phone: string): boolean => {
 const Phone = () => {
     const [visibleLoader, setVisibleLoader] = useState(false);
     useEffect(() => {
-        setTimeout(() => setVisibleLoader(true), 2000)
-        setTimeout(() => setVisibleLoader(false), 5000)
-        setTimeout(() => setVisibleLoader(true), 9000)
+        // setTimeout(() => setVisibleLoader(true), 2000)
+        // setTimeout(() => setVisibleLoader(false), 5000)
+        // setTimeout(() => setVisibleLoader(true), 9000)
+        // setTimeout(() => dispatch(next()), 13000)
 
     }, []);
 
@@ -122,7 +123,7 @@ const Phone = () => {
                 </span>
             </div>
         </div>
-        <Loader visible={visibleLoader}/>
+        <Loader visible={isLoading}/>
     </>;
 }
 

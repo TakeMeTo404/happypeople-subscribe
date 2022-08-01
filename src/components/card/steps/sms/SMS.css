@@ -20,6 +20,11 @@
     height: calc(1rem * 50/16);
 }
 
+.controls__error {
+    color: var(--text-error);
+    font-size: calc(1rem * 14/16);
+}
+
 .line-1__code {
     flex-grow: 1;
     font-size: calc(1rem * 21/16);

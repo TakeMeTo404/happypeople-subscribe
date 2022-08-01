@@ -1,30 +1,84 @@
-import React, {memo} from "react";
+import React, {memo, useCallback, useEffect, useRef, useState} from "react";
 import {Button} from "@mui/material";
 import NextButton from "../../../buttons/next/NextButton";
 import BackButton from "../../../buttons/back/BackButton";
-import {useAppDispatch} from "../../../../hooks/redux";
+import {useActions, useAppDispatch} from "../../../../hooks/redux";
 import {stepSlice} from "../../../../store/reducers/stepSlice";
 import "./SMS.css";
+import {happyApi} from "../../../../services/HappyService";
+import Loader from "../../loader/Loader";
+
+const validate = (code: string): boolean => {
+    if (!code) return false;
+    if (code.length !== 4) return false;
+
+    const digits = "0123456789".split('');
+    return code.split('')
+        .filter(c => digits.includes(c))
+        .length === 4;
+}
 
 const SMS = () => {
     const dispatch = useAppDispatch();
-    const {next, back} = stepSlice.actions;
+    const [verify, {data, isLoading, isSuccess, error: verifyError}] = happyApi.useVerifyMutation();
+    const codeInputRef = useRef<HTMLInputElement>(null);
+    const {next, back, setCredentials, resetAuth} = useActions();
 
-    return <div className="card__content sms">
-        <div className="content__back-button-wrapper">
-            <BackButton handleClick={() => dispatch(back())}/>
-        </div>
-        <h2 className="card__title sms__title">
-            Код из СМС
-        </h2>
-        <div className="sms__controls">
-            <div className="controls__line-1">
-                <input className="line-1__code" placeholder="0000"/>
-                <NextButton handleClick={() => dispatch(next())} color="primary"/>
+    const [error, setError] = useState<string>('');
+
+    useEffect(() => {
+        if (isSuccess && data) {
+            dispatch(setCredentials(data));
+            dispatch(next())
+        }
+    }, [isSuccess, data])
+
+    useEffect(() => {
+        console.log(`Error from server`)
+        console.log(verifyError)
+    }, [verifyError])
+
+    const onClickNext = useCallback(() => {
+        const code = codeInputRef.current?.value || '';
+
+        if (validate(code)) {
+            verify(code);
+            setError(() => '');
+        }
+        setError("Введите код из 4 цифр")
+    }, [])
+
+    const onClickBack = useCallback(() => {
+        dispatch(resetAuth());
+        dispatch(back());
+    }, [])
+
+    const onClickNotReceived = useCallback(() => {
+        alert("Попробуйте заново отправить код или потворите попытку позже")
+    }, [])
+
+    return <>
+        <div className="card__content sms">
+            <div className="content__back-button-wrapper">
+                <BackButton handleClick={onClickBack}/>
             </div>
-            <Button className="controls__resend">Не пришел?</Button>
+            <h2 className="card__title sms__title">
+                Код из СМС
+            </h2>
+            <div className="sms__controls">
+                <div className="controls__line-1">
+                    <input className="line-1__code" ref={codeInputRef} placeholder="0000"/>
+                    <NextButton handleClick={onClickNext} color="primary"/>
+                </div>
+                {error && <span className="controls__error">
+                    {error}
+                </span>}
+                <Button className="controls__resend" onClick={onClickNotReceived}>Не пришел?</Button>
+            </div>
         </div>
-    </div>;
+
+        <Loader visible={isLoading}/>
+    </>;
 };
 
 export default memo(SMS);

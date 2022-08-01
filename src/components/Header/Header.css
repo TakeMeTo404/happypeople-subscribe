@@ -30,13 +30,13 @@
 
 @keyframes color-change {
     from {
-        color: var(--text-primary);
-        stroke: var(--text-primary);
-        fill: var(--text-primary);
+        color: rgb(var(--text-primary));
+        stroke: rgb(var(--text-primary));
+        fill: rgb(var(--text-primary));
     }
     to {
-        color: var(--text-secondary);
-        stroke: var(--text-secondary);
-        fill: var(--text-secondary);
+        color: rgb(var(--text-secondary));
+        stroke: rgb(var(--text-secondary));
+        fill: rgb(var(--text-secondary));
     }
 }

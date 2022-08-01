@@ -1,18 +1,21 @@
-/*
-import { v4 as uuidv4 } from 'uuid';
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {Step} from "./stepSlice";
 
-type User = {}
+type User = {
+    id: number,
+    full_name: string,
+    phone_number: string,
+    uuid: string,
+    avatars: {
+        medium: string
+    }
+}
 
-type AuthState = {
-    device_global_id: string,
+export type AuthState = {
     user: User | null,
     token: string | null
 }
 
 const initialState: AuthState = {
-    device_global_id: uuidv4(),
     user: null,
     token: null
 }
@@ -21,13 +24,15 @@ export const authSlice = createSlice({
     name: "auth",
     initialState,
     reducers: {
-        setCredentials(state, action: PayloadAction<Omit<AuthState, 'device_global_id'>>) {
-            state.user = action.payload.user
+        setCredentials(state, action: PayloadAction<AuthState>) {
             state.token = action.payload.token
+            state.user = action.payload.user
+        },
+        resetAuth(state) {
+            state.token = null;
+            state.user = null;
         }
     }
 })
 
 export default authSlice.reducer;
-*/
-export const Afds = 1;

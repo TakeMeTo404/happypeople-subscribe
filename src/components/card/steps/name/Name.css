@@ -13,11 +13,23 @@
 
 .name__controls {
     margin-top: calc(1rem * 40/16);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1rem;
     padding-bottom: 1rem;
-    width: min(100%, 1rem * 333/16);
+}
+
+.name-controls__line-1 {
     display: flex;
     justify-content: center;
     gap: calc(1rem * 9/16);
+}
+
+.name-controls__error {
+    color: var(--text-error);
+    font-size: calc(1rem * 14/16);
 }
 
 .name__controls > button {
