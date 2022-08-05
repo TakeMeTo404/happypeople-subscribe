@@ -18,6 +18,7 @@
     "@types/react-redux": "^7.1.24",
     "@types/react-transition-group": "^4.4.4",
     "classnames": "^2.3.1",
+    "event-emitter": "^0.3.5",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-redux": "^8.0.2",
@@ -53,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "@types/event-emitter": "^0.3.3",
     "@types/uuid": "^8.3.4"
   }
 }

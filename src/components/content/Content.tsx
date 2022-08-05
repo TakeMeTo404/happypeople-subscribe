@@ -7,10 +7,11 @@ import screen2 from '../../assets/img/screen2.png';
 import screen3 from '../../assets/img/screen3.png';
 import circleUp from '../../assets/img/circleUp.png';
 import circleBottom from '../../assets/img/circleBottom.png';
+import {JOIN_CLICKS_EMITTER} from "../../constants";
 
 const Content = () => {
     const onClickJoin = () => {
-        console.log("clicked to join")
+        JOIN_CLICKS_EMITTER.emit('join');
     }
 
     return <div className="content">

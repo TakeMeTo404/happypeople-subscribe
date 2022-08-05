@@ -16,7 +16,12 @@ const Name = () => {
 
     useEffect(() => {
         if (isSuccess) dispatch(next())
-    }, [isSuccess])
+        else if (requestError) setError(() => 'Ошибка при загрузке данных')
+    }, [isSuccess, requestError])
+
+    const onNameChange = useCallback(() => {
+        setError(() => '')
+    }, []);
 
     const onClickNext = useCallback(() => {
         const name = nameInputRef.current?.value;
@@ -40,7 +45,7 @@ const Name = () => {
             </p>
             <div className="name__controls">
                 <div className="name-controls__line-1">
-                    <input className="controls__name" ref={nameInputRef} placeholder="Борис"/>
+                    <input className="controls__name" ref={nameInputRef} onChange={onNameChange} placeholder="Борис"/>
                     <NextButton handleClick={onClickNext} color="primary"/>
                 </div>
                 {error && <span className="name-controls__error">{error}</span>}

@@ -7,6 +7,7 @@ import {stepSlice} from "../../../../store/reducers/stepSlice";
 import "./SMS.css";
 import {happyApi} from "../../../../services/HappyService";
 import Loader from "../../loader/Loader";
+import useDebounce from "../../../../hooks/useDebounce";
 
 const validate = (code: string): boolean => {
     if (!code) return false;
@@ -20,11 +21,15 @@ const validate = (code: string): boolean => {
 
 const SMS = () => {
     const dispatch = useAppDispatch();
-    const [verify, {data, isLoading, isSuccess, error: verifyError}] = happyApi.useVerifyMutation();
+    const [verify, {data, isLoading, isSuccess, error: requestError}] = happyApi.useVerifyMutation();
     const codeInputRef = useRef<HTMLInputElement>(null);
     const {next, back, setCredentials, resetAuth} = useActions();
 
     const [error, setError] = useState<string>('');
+
+    useEffect(() => {
+        if (requestError) setError('Ошибка при загрузке данных')
+    }, [requestError])
 
     useEffect(() => {
         if (isSuccess && data) {
@@ -33,17 +38,34 @@ const SMS = () => {
         }
     }, [isSuccess, data])
 
-    useEffect(() => {
-        console.log(`Error from server`)
-        console.log(verifyError)
-    }, [verifyError])
+    const debouncedVerify = useDebounce(verify, 1000);
+
+    const debouncedSetError = useDebounce(setError, 1000);
+
+    const onChange = useCallback(() => {
+        if (isLoading) return;
+
+        const code = codeInputRef.current?.value || '';
+
+        if (validate(code)) {
+            verify(code);
+            return setError('')
+        }
+
+        setError('');
+        debouncedSetError('Введите код из 4 цифр');
+
+
+
+
+    }, [debouncedSetError])
 
     const onClickNext = useCallback(() => {
         const code = codeInputRef.current?.value || '';
 
         if (validate(code)) {
             verify(code);
-            setError(() => '');
+            return setError(() => '');
         }
         setError("Введите код из 4 цифр")
     }, [])
