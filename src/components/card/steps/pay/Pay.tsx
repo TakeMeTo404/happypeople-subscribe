@@ -18,11 +18,9 @@ const Pay = () => {
         if (!id) return console.error('id is undefined')
 
         const onSuccess = () => {
-            console.log('Success')
             dispatch(next())
         }
         const onFail = () => {
-            console.log('fail')
         }
         showWidget(`${id}`, onSuccess, onFail);
     }, [id])

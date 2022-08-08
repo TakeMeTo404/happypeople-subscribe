@@ -71,7 +71,7 @@
 
 .phone__controls {
     margin-top: calc(1rem * 28/16);
-    width: min(100%, 1rem * 333/16);
+    max-width: 100%;
     padding-bottom: 2rem;
     flex-direction: column;
     display: flex;
