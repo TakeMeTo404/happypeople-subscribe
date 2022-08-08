@@ -1,15 +1,31 @@
-import React, {memo} from "react";
+import React, {memo, useCallback} from "react";
 import CloudPaymentsForm from "../../../CloudPaymentsForm";
 import NextButton from "../../../buttons/next/NextButton";
-import {useAppDispatch} from "../../../../hooks/redux";
+import {useAppDispatch, useAppSelector} from "../../../../hooks/redux";
 import BackButton from "../../../buttons/back/BackButton";
 import {stepSlice} from "../../../../store/reducers/stepSlice";
+import showWidget from "./showWidget";
 
 import "./Pay.css";
 
 const Pay = () => {
     const dispatch = useAppDispatch();
     const {next, back} = stepSlice.actions;
+
+    const id = useAppSelector(state => state.auth.user?.id)
+
+    const onClickPay = useCallback(() => {
+        if (!id) return console.error('id is undefined')
+
+        const onSuccess = () => {
+            console.log('Success')
+            dispatch(next())
+        }
+        const onFail = () => {
+            console.log('fail')
+        }
+        showWidget(`${id}`, onSuccess, onFail);
+    }, [id])
 
     return <div className="card__content name">
         <div className="content__back-button-wrapper">
@@ -28,10 +44,10 @@ const Pay = () => {
                     ₽<br/>в месяц
                 </h4>
                 <div className="pay__next-button-wrapper">
-                    <NextButton color="primary" handleClick={() => dispatch(next())}>
+                    <NextButton color="primary" handleClick={onClickPay}>
                     <span className="pay__next-button-title">
                             Оформить
-                        </span>
+                    </span>
                     </NextButton>
                 </div>
             </div>
