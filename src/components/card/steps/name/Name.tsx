@@ -6,16 +6,17 @@ import {useActions, useAppDispatch} from "../../../../hooks/redux";
 import "./Name.css";
 import {happyApi} from "../../../../services/HappyService";
 import Loader from "../../loader/Loader";
+import {Step} from "../../../../store/reducers/stepSlice";
 
 const Name = () => {
     const dispatch = useAppDispatch();
-    const {next, back} = useActions();
+    const {goStep} = useActions();
     const [setName, {isLoading, error: requestError, isSuccess}] = happyApi.useSetNameMutation();
     const nameInputRef = useRef<HTMLInputElement>(null);
     const [error, setError] = useState<string>('');
 
     useEffect(() => {
-        if (isSuccess) dispatch(next())
+        if (isSuccess) dispatch(goStep(Step.PAY))
         else if (requestError) setError(() => 'Ошибка при загрузке данных')
     }, [isSuccess, requestError])
 
@@ -34,7 +35,7 @@ const Name = () => {
     return <>
         <div className="card__content name">
             <div className="content__back-button-wrapper">
-                <BackButton handleClick={() => dispatch(back())}/>
+                <BackButton handleClick={() => dispatch(goStep(Step.SMS))}/>
             </div>
             <h2 className="card__title name__title">
                 Как вас зовут?

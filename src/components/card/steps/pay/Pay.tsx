@@ -1,16 +1,17 @@
 import React, {memo, useCallback} from "react";
 import CloudPaymentsForm from "../../../CloudPaymentsForm";
 import NextButton from "../../../buttons/next/NextButton";
-import {useAppDispatch, useAppSelector} from "../../../../hooks/redux";
+import {useActions, useAppDispatch, useAppSelector} from "../../../../hooks/redux";
 import BackButton from "../../../buttons/back/BackButton";
-import {stepSlice} from "../../../../store/reducers/stepSlice";
 import showWidget from "./showWidget";
 
 import "./Pay.css";
+import {Step} from "../../../../store/reducers/stepSlice";
 
 const Pay = () => {
     const dispatch = useAppDispatch();
-    const {next, back} = stepSlice.actions;
+    const {goStep} = useActions();
+    const username = useAppSelector(state => state.auth.user?.full_name);
 
     const id = useAppSelector(state => state.auth.user?.id)
 
@@ -18,16 +19,22 @@ const Pay = () => {
         if (!id) return console.error('id is undefined')
 
         const onSuccess = () => {
-            dispatch(next())
+            dispatch(goStep(Step.SUCCESS))
         }
         const onFail = () => {
         }
         showWidget(`${id}`, onSuccess, onFail);
     }, [id])
 
+    const onClickBack = useCallback(() => {
+        dispatch(goStep(
+            username ? Step.SMS : Step.NAME
+        ))
+    }, [username]);
+
     return <div className="card__content name">
         <div className="content__back-button-wrapper">
-            <BackButton handleClick={() => dispatch(back())}/>
+            <BackButton handleClick={onClickBack}/>
         </div>
         <h2 className="card__title pay__title">
             Вступайте в сообщество счастливых и расскажите о себе!

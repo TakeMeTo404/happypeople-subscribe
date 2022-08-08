@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 export enum Step {
     PHONE,
@@ -22,19 +22,10 @@ export const stepSlice = createSlice({
     name: "step",
     initialState,
     reducers: {
-        next(state) {
-            if (state.current === Step.SUCCESS) throw new Error();
-            state.previous = state.current;
-            state.current = state.current + 1;
-        },
-        back(state) {
-            if (state.current === Step.PHONE) throw new Error();
-            state.previous = state.current;
-            state.current = state.current - 1;
+        goStep(state, {payload}: PayloadAction<Step>) {
+            state.previous = state.current
+            state.current = payload
         }
-    },
-    extraReducers: {
-
     }
 })
 

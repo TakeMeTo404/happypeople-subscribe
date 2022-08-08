@@ -3,7 +3,7 @@ import {Button} from "@mui/material";
 import NextButton from "../../../buttons/next/NextButton";
 import BackButton from "../../../buttons/back/BackButton";
 import {useActions, useAppDispatch} from "../../../../hooks/redux";
-import {stepSlice} from "../../../../store/reducers/stepSlice";
+import {Step} from "../../../../store/reducers/stepSlice";
 import "./SMS.css";
 import {happyApi} from "../../../../services/HappyService";
 import Loader from "../../loader/Loader";
@@ -23,7 +23,7 @@ const SMS = () => {
     const dispatch = useAppDispatch();
     const [verify, {data, isLoading, isSuccess, error: requestError}] = happyApi.useVerifyMutation();
     const codeInputRef = useRef<HTMLInputElement>(null);
-    const {next, back, setCredentials, resetAuth} = useActions();
+    const {goStep, setCredentials, resetAuth} = useActions();
 
     const [error, setError] = useState<string>('');
 
@@ -34,7 +34,12 @@ const SMS = () => {
     useEffect(() => {
         if (isSuccess && data) {
             dispatch(setCredentials(data));
-            dispatch(next())
+
+            const hasName = data.user?.full_name;
+
+            dispatch(goStep(
+                hasName ? Step.PAY : Step.NAME
+            ))
         }
     }, [isSuccess, data])
 
@@ -54,10 +59,6 @@ const SMS = () => {
 
         setError('');
         debouncedSetError('Введите код из 4 цифр');
-
-
-
-
     }, [debouncedSetError])
 
     const onClickNext = useCallback(() => {
@@ -72,7 +73,7 @@ const SMS = () => {
 
     const onClickBack = useCallback(() => {
         dispatch(resetAuth());
-        dispatch(back());
+        dispatch(goStep(Step.PHONE));
     }, [])
 
     const onClickNotReceived = useCallback(() => {

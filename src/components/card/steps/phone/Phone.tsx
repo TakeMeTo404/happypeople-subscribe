@@ -13,6 +13,7 @@ import "./Phone.css";
 import {happyApi} from "../../../../services/HappyService";
 import Loader from "../../loader/Loader";
 import {JOIN_CLICKS_EMITTER} from "../../../../constants";
+import {Step} from "../../../../store/reducers/stepSlice";
 
 const inputValueToPhone = (value: string | undefined) => {
     if (!value) return "";
@@ -38,15 +39,15 @@ const validate = (phone: string): boolean => {
 
 const Phone = () => {
     const dispatch = useAppDispatch();
-    const {next} = useActions();
+    const {goStep} = useActions();
     const inputRef = useRef<HTMLInputElement>(null);
     const [formatError, setFormatError] = useState<boolean>(false)
-    const [sendSMS, {isLoading, isSuccess, isUninitialized, error: requestError}] = happyApi.useSendSMSMutation();
+    const [sendSMS, {isLoading, isSuccess, error: requestError}] = happyApi.useSendSMSMutation();
 
     const error = (formatError && "Номер неправильного формата") || (requestError && 'Ошибка при загрузке данных');
 
     useEffect(() => {
-        if (isSuccess) dispatch(next());
+        if (isSuccess) dispatch(goStep(Step.SMS));
     }, [isSuccess])
 
     const validateInput = useCallback(() => {
