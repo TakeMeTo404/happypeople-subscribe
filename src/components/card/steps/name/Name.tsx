@@ -32,6 +32,16 @@ const Name = () => {
         setError(() => '')
     }, [])
 
+    useEffect(() => {
+        const listener = (e: any) => {
+            if (e.code === 'Enter') {
+                onClickNext(); // imitate
+            }
+        }
+        document.addEventListener('keypress', listener)
+        return () => document.removeEventListener('keypress', listener)
+    }, [onClickNext])
+
     return <>
         <div className="card__content name">
             <div className="content__back-button-wrapper">

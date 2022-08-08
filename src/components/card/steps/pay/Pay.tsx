@@ -1,4 +1,4 @@
-import React, {memo, useCallback} from "react";
+import React, {memo, useCallback, useEffect} from "react";
 import CloudPaymentsForm from "../../../CloudPaymentsForm";
 import NextButton from "../../../buttons/next/NextButton";
 import {useActions, useAppDispatch, useAppSelector} from "../../../../hooks/redux";
@@ -25,6 +25,16 @@ const Pay = () => {
         }
         showWidget(`${id}`, onSuccess, onFail);
     }, [id])
+
+    useEffect(() => {
+        const listener = (e: any) => {
+            if (e.code === 'Enter') {
+                onClickPay(); // imitate
+            }
+        }
+        document.addEventListener('keypress', listener)
+        return () => document.removeEventListener('keypress', listener)
+    }, [onClickPay])
 
     const onClickBack = useCallback(() => {
         dispatch(goStep(

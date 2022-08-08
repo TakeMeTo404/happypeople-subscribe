@@ -76,6 +76,16 @@ const Phone = () => {
     }, [])
 
     useEffect(() => {
+        const listener = (e: any) => {
+            if (e.code === 'Enter') {
+                onClickNext(); // imitate
+            }
+        }
+        document.addEventListener('keypress', listener)
+        return () => document.removeEventListener('keypress', listener)
+    }, [onClickNext])
+
+    useEffect(() => {
         const doFocus = () => inputRef.current?.focus();
 
         JOIN_CLICKS_EMITTER.on('join', doFocus);

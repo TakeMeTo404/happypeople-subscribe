@@ -71,6 +71,16 @@ const SMS = () => {
         setError("Введите код из 4 цифр")
     }, [])
 
+    useEffect(() => {
+        const listener = (e: any) => {
+            if (e.code === 'Enter') {
+                onClickNext(); // imitate
+            }
+        }
+        document.addEventListener('keypress', listener)
+        return () => document.removeEventListener('keypress', listener)
+    }, [onClickNext])
+
     const onClickBack = useCallback(() => {
         dispatch(resetAuth());
         dispatch(goStep(Step.PHONE));

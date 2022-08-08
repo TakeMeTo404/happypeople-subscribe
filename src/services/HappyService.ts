@@ -4,6 +4,22 @@ import {RootState} from "../store";
 import {AuthState} from "../store/reducers/authSlice";
 
 type VerifyResponseData = AuthState;
+type MeResponseData = {
+    my_data: {
+        full_name: string,
+        avatars: {
+            medium: string
+        } | null,
+        subscription_status: "Active" | undefined
+    }
+}
+type CardsResponseData = {
+    cards: Array<{
+        CardLastFour: string,
+        CardType: "Visa" | "Mastercard" | string
+    }>
+}
+
 
 export const happyApi = createApi({
     reducerPath: 'happyApi',
@@ -22,6 +38,18 @@ export const happyApi = createApi({
         }
     }),
     endpoints: (build) => ({
+        me: build.query<MeResponseData, void>({
+            query: () => ({
+                url: 'auth/me',
+                method: 'GET'
+            })
+        }),
+        cards: build.query<CardsResponseData, void>({
+            query: () => ({
+                url: 'profile/cards',
+                method: 'GET'
+            })
+        }),
         sendSMS: build.mutation({
             query: (phone: string) => ({
                 url: 'auth/lor',

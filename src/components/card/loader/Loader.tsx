@@ -7,7 +7,9 @@ interface LoaderProps {
 }
 
 const Loader = ({visible}: LoaderProps) => {
-    return <CSSTransition in={visible} timeout={{enter: 300, exit: 150}} mountOnEnter unmountOnExit classNames={{
+    return <CSSTransition in={visible} timeout={{enter: 300, exit: 150}} appear mountOnEnter unmountOnExit classNames={{
+        appearActive: "loader-bg_darkening",
+        appearDone: "loader-bg_dark",
         enterActive: "loader-bg_darkening",
         enterDone: "loader-bg_dark",
         exitActive: "loader-bg_lightening",
