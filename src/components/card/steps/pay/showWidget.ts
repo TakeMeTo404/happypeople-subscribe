@@ -11,7 +11,7 @@ export default function (accountId: string, onSuccess: () => void, onFail: () =>
 
     let data = {
         CloudPayments: {
-            recurrent: { interval: 'Day', period: 1 }
+            recurrent: { interval: 'Month', period: 1 }
         }
     };
 
@@ -29,26 +29,11 @@ export default function (accountId: string, onSuccess: () => void, onFail: () =>
         },
         function (options: any) {
             isOpened = false;
-            console.group("onSuccess callback. Parameters:")
-            console.log('options: ')
-            console.log(options)
-            console.groupEnd()
             onSuccess();
         },
         function (reason: any, options: any) {
             isOpened = false;
-            console.group("onFail callback. Parameters:")
-            console.log('options: ')
-            console.log(options)
-            console.log('reason: ')
-            console.log(reason)
-            console.groupEnd()
             onFail();
-        },
-        function (aaa: any) {
-            console.group('onComplete')
-            console.log(aaa)
-            console.groupEnd();
         }
     );
 }

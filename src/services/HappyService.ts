@@ -10,7 +10,8 @@ type MeResponseData = {
         avatars: {
             medium: string
         } | null,
-        subscription_status: "Active" | undefined
+        subscription_status: "Active" | undefined,
+        subscription_started_at: string
     }
 }
 type CardsResponseData = {

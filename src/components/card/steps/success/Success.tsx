@@ -1,4 +1,4 @@
-import React, {memo} from "react";
+import React, {memo, useMemo} from "react";
 import { Button } from "@mui/material";
 import hand from '../../../../assets/img/hand.png';
 import { ReactComponent as Ios}  from '../../../../assets/img/ios.svg';
@@ -10,6 +10,7 @@ import {Step} from "../../../../store/reducers/stepSlice";
 import {happyApi} from "../../../../services/HappyService";
 
 import "./Success.css";
+import moment from "moment";
 
 const Success = () => {
     const dispatch = useAppDispatch();
@@ -22,13 +23,39 @@ const Success = () => {
 
     const avatarUrl = meState.data?.my_data.avatars?.medium;
 
+    const dateText = useMemo<string>(() => {
+        const startedAt = meState.data?.my_data?.subscription_started_at;
+
+        if (!startedAt) return 'до ** ***';
+
+        const endDate = moment(startedAt).add(1, 'months');
+
+        var mapMonth = (m: string): string => {
+            switch (m) {
+                case '1': return "Янв";
+                case '2': return "Фев";
+                case '3': return "Мар";
+                case '4': return "Апр";
+                case '5': return "Мая";
+                case '6': return "Июн";
+                case '7': return "Июл";
+                case '8': return "Авг";
+                case '9': return "Сен";
+                case '10': return "Окт";
+                case '11': return "Ноя";
+                case '12': return "Дек";
+            }
+            return ""
+        }
+
+        return `до ${endDate.format('D')} ${mapMonth(endDate.format('M'))}`
+    }, [meState.data])
+
     const name = meState.data?.my_data.full_name;
 
     const digits = cardsState.data?.cards[0].CardLastFour?.slice(1, 4) || null;
     const type = cardsState.data?.cards[0].CardType || null;
     const cardText = digits && type && `*${digits} ${type}`;
-
-    const dateText = 'до 23 Мар';
 
     return <>
         {!isLoading &&
