@@ -5,6 +5,7 @@ type User = {
     full_name: string | null,
     phone_number: string,
     uuid: string,
+    subscription_status: "Active" | string | null,
     avatars: {
         medium: string
     }

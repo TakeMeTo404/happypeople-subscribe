@@ -61,7 +61,7 @@ const Success = () => {
         {!isLoading &&
             <div className="card__content name">
                 <div className="content__back-button-wrapper">
-                    <BackButton handleClick={() => dispatch(goStep(Step.PAY))}/>
+                    <BackButton handleClick={() => dispatch(goStep(Step.PHONE))}/>
                 </div>
                 <img src={avatarUrl || hand} alt="Ваш аватар" className="success__avatar"/>
                 <h2 className="card__title success__title">

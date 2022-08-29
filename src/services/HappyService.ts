@@ -3,6 +3,11 @@ import {BASE_API_URL, DEVICE_GLOBAL_ID} from "../constants";
 import {RootState} from "../store";
 import {AuthState} from "../store/reducers/authSlice";
 
+// type VerifyResponseData = AuthState & {
+//     user: AuthState["user"] & {
+//         subscription_status: "Active" | string | null;
+//     }
+// };
 type VerifyResponseData = AuthState;
 type MeResponseData = {
     my_data: {

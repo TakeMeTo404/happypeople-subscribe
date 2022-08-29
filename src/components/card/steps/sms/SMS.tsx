@@ -37,8 +37,12 @@ const SMS = () => {
 
             const hasName = data.user?.full_name;
 
+            const hasAlreadySubscription = data.user?.subscription_status === "Active";
+
             dispatch(goStep(
-                hasName ? Step.PAY : Step.NAME
+                hasAlreadySubscription ? Step.SUCCESS :
+                    !hasName ? Step.NAME :
+                        Step.PAY
             ))
         }
     }, [isSuccess, data])
